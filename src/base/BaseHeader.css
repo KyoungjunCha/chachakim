@@ -1,0 +1,49 @@
+.BaseHeader-container {
+    position: fixed;
+    display: flex;
+    bottom: 0px;
+    border: 1px solid;
+    width: 100vw;
+    height: 50px;
+    top: 0px;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    background-color: white;
+  }
+  
+  .BaseHeader-Title {
+    margin-left: 10px;
+    cursor: pointer;
+  }
+  
+  .BaseHeader-search-container {
+    display: flex;
+    height: 100%;
+    align-items: center;
+  }
+  
+  .BaseHeader-search-input {
+    height: 20px;
+    width: 20vw;
+    border: 1px solid;
+    border-radius: 0.5rem;
+  }
+  
+  .BaseHeader-search-button {
+    border: 1px solid;
+    border-radius: 0.5rem;
+    margin: 5px;
+    height: 25px;
+    line-height: 0px;
+    &:hover {
+      background-color: black;
+      color: white;
+      outline: null;
+    }
+  }
+  
+  .BaseHeader-username {
+    margin-right: 50px;
+  }
+  
