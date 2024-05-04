@@ -1,9 +1,9 @@
 import "./App.css";
-import MAIN_PAGE from "./page/MainPage";
-import VS_PAGE from "./page/vsPage";  // .tsx 확장자 제거
-import SURVEY_PAGE from "./page/SurveyPage";  // .tsx 확장자 제거
-import VS_PAGE_DETAIL from "./page/vsDetailPage";  // .tsx 확장자 제거
-import SURVEY_PAGE_DETAIL from "./page/SurveyDetailPage";  // .tsx 확장자 제거
+import MAIN_PAGE from "./page/MainPage.js";
+import VS_PAGE from "./page/vsPage.js";
+import SURVEY_PAGE from "./page/SurveyPage.js";
+import VS_PAGE_DETAIL from "./page/vsDetailPage.js";
+import SURVEY_PAGE_DETAIL from "./page/SurveyDetailPage.js";
 
 // import LoginPage from './pages/login/LoginPage_test';
 // import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
