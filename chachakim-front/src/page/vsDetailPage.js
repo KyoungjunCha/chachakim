@@ -12,14 +12,14 @@ const VsDetailPage = () => {
   const [vsList, setVSList] = React.useState(VS_LIST[key]);
 
   const renderBody = () => {
-    console.log("vsList",vsList)
+
     return(
       <div style={{
         position: "absolute",
         marginTop: "100px",
         top: "0px",
         width: "85vw",
-        left: "50vw",
+        left: "30vw",
         }}>
         <div style={{display : "flex"}}>
           <div style={{
@@ -29,9 +29,64 @@ const VsDetailPage = () => {
             }}>VS이름</div>
           <div style={{
             border : "1px solid",
-            width : "400px"
+            width : "400px",
+            textAlign : "center"
           }}
-          >{vsList["vs이름"]}</div>
+          >{vsList["vs이름"]}
+          </div>
+          <div style={{
+            border : "1px solid",
+            width : "150px",
+            textAlign : "center"
+          }}>작성자
+          </div>
+          <div style={{
+            border : "1px solid",
+            width : "150px",
+            textAlign : "center"
+          }}>
+            {vsList["작성자"]}
+          </div>
+          
+        </div>
+        <div style={{display : "flex"}}>
+          <div style={{
+              border : "1px solid",
+              width : "150px",
+              textAlign : "center"
+            }}>
+            게시일
+          </div>
+          <div style={{
+            border : "1px solid",
+            width : "400px",
+            textAlign : "center"
+          }}>
+            {vsList["게시일"]}
+          </div>
+          <div style={{
+            border : "1px solid",
+            width : "150px",
+            textAlign : "center"
+          }}>
+            조회수
+          </div>
+          <div style={{
+            border : "1px solid",
+            width : "150px",
+            textAlign : "center"
+          }}>
+            {vsList["조회수"]}
+          </div>
+        </div>
+        <div style={{position : "absolute",  top : "300px"}}>
+          <div>
+            <button style={{
+              border : "1px solid",
+              width : "300px"
+            }}>{vsList["vs이름"][0]}</button>
+          </div>
+          
         </div>
       </div>
     );
