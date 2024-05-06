@@ -46,4 +46,14 @@
   .BaseHeader-username {
     margin-right: 50px;
   }
+
+  .BaseHeader-login {
+    margin-right: 30px;
+    cursor: pointer;
+  } /*관호 작성 */
+
+  .BaseHeader-signup {
+    margin-right: 20px;
+    cursor: pointer;
+  } /*관호 작성 */
   
