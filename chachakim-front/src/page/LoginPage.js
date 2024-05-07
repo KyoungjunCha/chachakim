@@ -23,10 +23,11 @@ const LoginPage = () => {
     <>
       <Menu />
       <Header />
-      <div style={{ display: "flex", justifyContent: "center", padding: "20px", marginLeft: "450px" }}>
-        <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", width: "50%" }}>
+      <div style={{ display: "flex", justifyContent: "center", padding: "20px", marginLeft: "550px" }}>
+        <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", width: "100%" }}>
+          <h2 style = {{marginLeft: "100px"}}>로그인</h2>
           <div style={{ marginBottom: '10px', display: 'flex', alignItems: 'center' }}>
-            <label style={{ width: '120px', marginRight: '10px' }}>아이디:</label>
+            <label style={{ width: '90px', marginRight: '10px' }}>아이디:</label>
             <input
               type="text"
               name="username"
@@ -37,7 +38,7 @@ const LoginPage = () => {
             />
           </div>
           <div style={{ marginBottom: '10px', display: 'flex', alignItems: 'center' }}>
-            <label style={{ width: '120px', marginRight: '10px' }}>비밀번호:</label>
+            <label style={{ width: '90px', marginRight: '10px' }}>비밀번호:</label>
             <input
               type="password"
               name="password"
@@ -48,7 +49,9 @@ const LoginPage = () => {
             />
           </div>
          
-            <button type="button" >로그인</button> <button type="button" >아이디 찾기</button>  <button type="button" >비밀번호 찾기</button>
+            <button type="button" style={{ margin: '10px', padding: '10px 20px',width: "90%" }}>로그인</button> 
+            <button type="button" style={{ margin: '10px', padding: '10px 20px',width: "90%" }}>아이디 찾기</button>  
+            <button type="button" style={{ margin: '10px', padding: '10px 20px',width: "90%" }}>비밀번호 찾기</button>
             
            
          

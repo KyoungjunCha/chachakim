@@ -45,8 +45,9 @@ const SignupPage = () => {
     <>
       <Menu />
       <Header />
-      <div style={{ display: "flex", justifyContent: "center", padding: "20px", marginLeft: "450px" }}>
-        <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", width: "50%"}}>
+      <div style={{ display: "flex", justifyContent: "center", padding: "20px", marginLeft: "550px" }}>
+        <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", width: "90%"}}>
+          <h2 style={{ width: '100%', textAlign: 'center' }}>회원가입</h2> {/* 추가된 제목 */}
           {Object.entries(formData).map(([key, value]) => (
             <div key={key} style={{ marginBottom: '10px', display: 'flex', alignItems: 'center' }}>
               <label style={{ width: '120px', marginRight: '10px', marginTop: '10px' }}>
@@ -59,7 +60,6 @@ const SignupPage = () => {
                 value={value}
                 onChange={handleChange}
                 required
-              
               />
             </div>
           ))}
