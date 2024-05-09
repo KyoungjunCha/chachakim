@@ -16,7 +16,7 @@ const MainPage = () => {
         <div>
           <li
             onClick={() => {
-              navigate(`/vsPage/${i}`);
+              navigate(`/vsPage/${i}`, {state : {id : i}});
             }}
           >
             {listItem[listName]}

@@ -25,13 +25,19 @@ const App = () => {
         <Route path="/surveyPage" element={<SURVEY_PAGE />} />
         <Route path="/vsPage/:page_id" element={<VS_PAGE_DETAIL />} />
         <Route path="/surveyPage/:page_id" element={<SURVEY_PAGE_DETAIL />} />
-        <Route path="/SignupPage" element={<SIGN_UP_PAGE/>} /> {/*회원가입 페이지 이동 관호 작성*/}
-        <Route path="/LoginPage" element={<LOGIN_PAGE/>} /> {/* 로그인 페이지 이동 관호 작성*/}
-        <Route path="/FindIdPage" element={<FIND_ID_PAGE/>} /> {/* 아이디 찾기 페이지 이동 관호 작성*/}
-        <Route path="/FindPwPage" element={<FIND_PW_PAGE/>} /> {/* 비밀번호 찾기 페이지 이동 관호 작성*/}
-        <Route path="/ChangePwPage" element={<CHANGE_PW_PAGE/>} /> {/* 비밀번호 변경 페이지 이동 관호 작성*/}
-        <Route path="/MyPage" element={<MY_PAGE/>} /> {/* 내정보 페이지 이동 관호 작성*/}
-        <Route path="/MyTakePage" element={<MY_TAKE_PAGE/>} /> {/* 내가 참여한 게시물 리스트 페이지 이동 관호 작성*/}
+        <Route path="/SignupPage" element={<SIGN_UP_PAGE />} />{" "}
+        {/*회원가입 페이지 이동 관호 작성*/}
+        <Route path="/LoginPage" element={<LOGIN_PAGE />} />{" "}
+        {/* 로그인 페이지 이동 관호 작성*/}
+        <Route path="/FindIdPage" element={<FIND_ID_PAGE />} />{" "}
+        {/* 아이디 찾기 페이지 이동 관호 작성*/}
+        <Route path="/FindPwPage" element={<FIND_PW_PAGE />} />{" "}
+        {/* 비밀번호 찾기 페이지 이동 관호 작성*/}
+        <Route path="/ChangePwPage" element={<CHANGE_PW_PAGE />} />{" "}
+        {/* 비밀번호 변경 페이지 이동 관호 작성*/}
+        <Route path="/MyPage" element={<MY_PAGE />} /> {/* 내정보 페이지 이동 관호 작성*/}
+        <Route path="/MyTakePage" element={<MY_TAKE_PAGE />} />{" "}
+        {/* 내가 참여한 게시물 리스트 페이지 이동 관호 작성*/}
         <Route path="*" element={<Navigate to="/main" replace />} />
       </Routes>
     </BrowserRouter>

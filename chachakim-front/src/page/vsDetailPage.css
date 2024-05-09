@@ -1,0 +1,17 @@
+.vsDetail_persent_bar{
+    width : 200px;
+    height : 30px;
+    background-color: #dedede;
+    font-weight: 600;
+    font-size: .8rem;
+}
+
+.vsDetail_persent_progress{
+    width : 72%;
+    height : 30px;
+    padding : 0;
+    line-height: 30px;
+    text-align: center;
+    background-color: #4F98FF;
+    color : #111;
+}
