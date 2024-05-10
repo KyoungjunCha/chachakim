@@ -2,17 +2,15 @@ import React from "react";
 import Menu from "../base/BaseMenu.js";
 import Header from "../base/BaseHeader.js";
 import {useLocation} from "react-router-dom"
-import {VS_LIST} from "./ListDummy.js"
+import {SURVEY_LIST} from "./ListDummy.js"
 import "./SurveyDetailPage.css"
 
 const SurveyDetailPage = () => {
 
   const location = useLocation();
   const key = location.state.id;
-  const [vsList, setVSList] = React.useState(VS_LIST[key]);
+  const [surveyList, setSurveyList] = React.useState(SURVEY_LIST[key]);
   const [isDisplay, setIsDisplay] = React.useState(false);
-  const [frontPersent, setFrontPersent] = React.useState()
-  const [backPersent, setBackPersent] = React.useState()
 
   const renderBody = () => {
 
@@ -35,7 +33,7 @@ const SurveyDetailPage = () => {
             width : "400px",
             textAlign : "center"
           }}
-          >{vsList["vs이름"]}
+          >{surveyList["설문"]}
           </div>
           <div style={{
             border : "1px solid",
@@ -48,7 +46,7 @@ const SurveyDetailPage = () => {
             width : "150px",
             textAlign : "center"
           }}>
-            {vsList["작성자"]}
+            {surveyList["작성자"]}
           </div>
           
         </div>
@@ -65,7 +63,7 @@ const SurveyDetailPage = () => {
             width : "400px",
             textAlign : "center"
           }}>
-            {vsList["게시일"]}
+            {surveyList["게시일"]}
           </div>
           <div style={{
             border : "1px solid",
@@ -79,59 +77,62 @@ const SurveyDetailPage = () => {
             width : "150px",
             textAlign : "center"
           }}>
-            {vsList["조회수"]}
+            {surveyList["조회수"]}
           </div>
         </div>
-        <div style={{position : "absolute",  top : "300px"}}>
-          <div style={{display : "flex"}}>
-            <button style={{
-              border : "1px solid",
-              width : "200px"
-            }}
-              onClick={()=>{setIsDisplay(true); }}
-            >{vsList["vs이름"][0]}</button>
-            <div style={{fontSize : "30px", margin : "0 210px"}}>vs</div>
-            <button style={{
-              border : "1px solid",
-              width : "200px"
-            }}
-              onClick={()=>{setIsDisplay(true)}}
-            >{vsList["vs이름"][5]}
-            </button>
-          </div>
-        </div>
-        <div style={{position : "absolute", top : "350px", left : "-10px"}}>
-          {isDisplay?
-            <div style={{display : "flex"}}>
-              <div style={{backgroundColor : "skyblue", textAlign :"center", fontSize : ".8rem", fontWeight : "600", padding : ".5rem", borderRadius : ".5rem"}}> 
-                <div style={{display : "flex", justifyContent : "space-between"}}>
-                  <dvi>{vsList["vs이름"][0]}의 투표율</dvi>
-                  <div>72%</div>
-                </div>
-                <div className="vsDetail_persent_bar">
-                  <div className="vsDetail_persent_progress">
-                  </div>
-                </div>
-              </div>
-              <div style={{marginLeft : "435px", backgroundColor : "skyblue", textAlign :"center", fontSize : ".8rem", fontWeight : "600", padding : ".5rem", borderRadius : ".5rem"}}>
-                <div style={{display : "flex", justifyContent : "space-between"}}>
-                  <div>{vsList["vs이름"][5]}의 투표율</div>
-                  <div>28%</div>
-                </div>
-                <div className="vsDetail_persent_bar">
-                  <div className="vsDetail_persent_progress">
-                  </div>
-                </div>
-              </div>
-            </div>
-          :null}
-        </div>
+        {surveyRender()}
       </div>
     );
   };
 
+  const surveyRender = () => {
+    const mkSurveyList = () => {
+      const list = [];
+      const surveyQustionList = ["1번", "2번", "3번", "4번"]
+      for (let i = 0; i < surveyQustionList.length; i++){
+        console.log(surveyQustionList.length)
+        if(i === (surveyQustionList.length - 1)){
+          console.log(i)
+          list.push(
+            <div style={{boxSizing : "border-box"}}>
+              <div style={{paddingLeft : "10px", cursor : "pointer"}}
+                onClick={()=>{}}
+              >{surveyQustionList[i]}</div>
+            </div>
+          )
+        }else{
+          console.log(i)
+          list.push(
+            <div style={{borderBottom : "1px solid", boxSizing : "border-box"}}>
+              <div style={{paddingLeft : "10px", cursor : "pointer"}}>{surveyQustionList[i]}</div>
+            </div>
+          )
+        }
+      };
+      return list;
+    }
+    
+
+    return (
+      <div style={{
+        position : "absolute",
+        top : "350px", 
+        left : "60px", 
+        border : "1px solid",
+        width : "750px", 
+        justifyContent : "center",
+        borderRadius : ".5rem",
+      }}>
+        <div>
+          {mkSurveyList()}
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div>
+      {renderBody()}
       <Menu />
       <Header />
     </div>

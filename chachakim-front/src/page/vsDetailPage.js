@@ -11,14 +11,6 @@ const VsDetailPage = () => {
   const key = location.state.id;
   const [vsList, setVSList] = React.useState(VS_LIST[key]);
   const [isDisplay, setIsDisplay] = React.useState(false);
-  const [frontPersent, setFrontPersent] = React.useState()
-  const [backPersent, setBackPersent] = React.useState()
-
-  const changeWidth = (e, place, width) => {
-    if(place = "front"){
-      setFrontPersent(e.target.value);
-    }
-  }
 
   const renderBody = () => {
 
@@ -88,6 +80,14 @@ const VsDetailPage = () => {
             {vsList["조회수"]}
           </div>
         </div>
+        {voteRender()}
+      </div>
+    );
+  };
+
+  const voteRender = () => {
+    return (
+      <div>
         <div style={{position : "absolute",  top : "300px"}}>
           <div style={{display : "flex"}}>
             <button style={{
@@ -111,21 +111,21 @@ const VsDetailPage = () => {
             <div style={{display : "flex"}}>
               <div style={{backgroundColor : "skyblue", textAlign :"center", fontSize : ".8rem", fontWeight : "600", padding : ".5rem", borderRadius : ".5rem"}}> 
                 <div style={{display : "flex", justifyContent : "space-between"}}>
-                  <dvi>{vsList["vs이름"][0]}의 투표율</dvi>
-                  <div>72%</div>
+                  <div>{vsList["vs이름"][0]}의 투표율</div>
+                  <div>{vsList["왼쪽"]}</div>
                 </div>
                 <div className="vsDetail_persent_bar">
-                  <div className="vsDetail_persent_progress">
+                  <div className="vsDetail_persent_progress" style={{width : `${vsList["왼쪽"]}`}}>
                   </div>
                 </div>
               </div>
               <div style={{marginLeft : "435px", backgroundColor : "skyblue", textAlign :"center", fontSize : ".8rem", fontWeight : "600", padding : ".5rem", borderRadius : ".5rem"}}>
                 <div style={{display : "flex", justifyContent : "space-between"}}>
                   <div>{vsList["vs이름"][5]}의 투표율</div>
-                  <div>28%</div>
+                  <div>{vsList["오른쪽"]}</div>
                 </div>
                 <div className="vsDetail_persent_bar">
-                  <div className="vsDetail_persent_progress">
+                  <div className="vsDetail_persent_progress" style={{width : `${vsList["오른쪽"]}`}}>
                   </div>
                 </div>
               </div>
@@ -134,7 +134,7 @@ const VsDetailPage = () => {
         </div>
       </div>
     );
-  };
+  }
 
   return (
     <div>
