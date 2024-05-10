@@ -5,7 +5,7 @@ import "./BaseComment.css";
 import { useLocation } from "react-router-dom";
 import { VS_LIST } from "../page/ListDummy";
 
-const Comment = () => {
+const Comment = props => {
   const location = useLocation();
   const key = location.state.id;
   const [comment, setComment] = useState([]);
