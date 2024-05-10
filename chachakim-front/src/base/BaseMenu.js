@@ -36,7 +36,7 @@ const Menu = (props) => {
     return (
       <div
         style={{
-          position: "absolute",
+          position: "fixed",
           border: "1px solid",
           padding: "50px 10px 10px 10px",
           top: "0px",

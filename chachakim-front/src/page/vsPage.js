@@ -3,7 +3,7 @@ import Menu from "../base/BaseMenu.js";
 import Header from "../base/BaseHeader.js";
 import { VS_LIST } from "./ListDummy.js";
 
-const vsPage = () => {
+const VsPage = () => {
   const list = VS_LIST;
 
   const createList = (item) => {
@@ -182,4 +182,4 @@ const vsPage = () => {
   );
 };
 
-export default vsPage;
+export default VsPage;

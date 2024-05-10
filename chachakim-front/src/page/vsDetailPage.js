@@ -1,10 +1,9 @@
 import React from "react";
 import Menu from "../base/BaseMenu.js";
 import Header from "../base/BaseHeader.js";
-import PropType from "prop-types";
 import {useLocation} from "react-router-dom"
 import {VS_LIST} from "./ListDummy.js"
-import "./vsDetailPage.css"
+import "./VsDetailPage.css"
 
 const VsDetailPage = () => {
 

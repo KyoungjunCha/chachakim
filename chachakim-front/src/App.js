@@ -1,8 +1,8 @@
 import "./App.css";
 import MAIN_PAGE from "./page/MainPage.js";
-import VS_PAGE from "./page/vsPage.js";
+import VS_PAGE from "./page/VsPage.js";
 import SURVEY_PAGE from "./page/SurveyPage.js";
-import VS_PAGE_DETAIL from "./page/vsDetailPage.js";
+import VS_PAGE_DETAIL from "./page/VsDetailPage.js";
 import SURVEY_PAGE_DETAIL from "./page/SurveyDetailPage.js";
 import SIGN_UP_PAGE from "./page/SingUpPage"; // 관호 작성
 import LOGIN_PAGE from "./page/LoginPage"; // 관호 작성
