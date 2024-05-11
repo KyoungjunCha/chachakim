@@ -1,67 +1,69 @@
-.BaseComment-container {}
+.BaseComment-container {
+    position: absolute;
+    width: 40vw;
+    left: 30vw;
+    /* 폭 조정 */
+    /* max-width: 600px; */
 
-.myComment {
+    /* 최대 폭 설정 */
     margin: 20px auto;
-    max-width: 700px;
-    margin-top: 10px;
-    margin-bottom: 500px;
-
-    background-color: white;
-    border: 1px solid #5c5353;
-
-    overflow: hidden;
-
-    display: flex;
-    flex-direction: column;
+    /* 중앙 정렬 및 위 아래 마진 조정 */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
 }
 
-.myCommentHeader {
-    padding-left: 10px;
-    background-color: #2675cf;
+.BaseComment-container input[type="text"] {
+    width: 70%;
+    padding: 10px;
+    margin-right: 10px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.BaseComment-container button {
+    padding: 10px 20px;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.BaseComment-container button:hover {
+    background-color: #4cae4c;
+}
+
+.comment-item {
     margin-top: 20px;
-
-    display: flex;
-    align-items: center;
-    margin-bottom: 8px;
-
-    .myCommentTotalfont {
-        margin-left: 10px;
-
-        color: white;
-        font-size: 25px;
-    }
+    padding: 15px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
 }
 
-.myCommentList {
-    margin-top: 10px;
-    margin-left: 50px;
-    margin-bottom: 10px;
+.comment-item h3 {
+    margin-top: 0;
+    color: #333;
+}
 
-    left: 50%;
+.comment-item p {
+    color: #666;
+}
 
+.comment-meta {
     display: flex;
-    align-items: center;
-    /* border: 1px solid rgb(32, 32, 32); */
+    justify-content: space-between;
+    font-size: 14px;
+    color: #999;
+    margin-top: 10px;
+}
 
-    .myCommentTitle {
-        height: auto;
-        width: 300px;
-        padding: 5px;
-
-        border: 1px solid rgb(32, 32, 32);
-    }
-
-    .myCommentCreatDate {
-        word-spacing: 20px;
-    }
-
-    .myCommentCheckBox {
-        width: 20px;
-        height: 20px;
-    }
-
-    .myCommentIcon {
-        width: 80px;
-        height: 80px;
-    }
+.comment-meta span {
+    margin-right: 10px;
 }

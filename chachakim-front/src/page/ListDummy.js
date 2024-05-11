@@ -103,46 +103,64 @@ const MY_TAKE_LIST = [
 // 차경준 작성 댓글 임시 더미 데이터
 const COMMENT_LIST = [
   {
-    닉네임: "리중딱김정현",
-    내용: "리버풀 요즘 개잘함",
-    게시일: "2024.05.10",
-    좋아요: 10,
-    싫어요: 100
+    nickname: "리중딱김정현",
+    content: "리버풀 요즘 개잘함",
+    comment_date: "2024.05.10",
+    agree: 10,
+    disagree: 100
   },
   {
-    닉네임: "원불교차관호",
-    내용: "관세음보살",
-    게시일: "2024.05.10",
-    좋아요: 1000,
-    싫어요: 10
+    nickname: "원불교차관호",
+    content: "관세음보살",
+    comment_date: "2024.05.10",
+    agree: 1000,
+    disagree: 10
   },
   {
-    닉네임: "꽃미남차경준",
-    내용: "굳",
-    게시일: "2024.05.10",
-    좋아요: 1000,
-    싫어요: 10
+    nickname: "꽃미남차경준",
+    content: "굳",
+    comment_date: "2024.05.10",
+    agree: 1000,
+    disagree: 10
   },
   {
-    닉네임: "나까무라우진",
-    내용: "곰방와",
-    게시일: "2024.05.10",
-    좋아요: 1111,
-    싫어요: 11
+    nickname: "나까무라우진",
+    content: "곰방와",
+    comment_date: "2024.05.10",
+    agree: 1111,
+    disagree: 11
   },
   {
-    닉네임: "슬슬귀찮음",
-    내용: "주악고악쥐이",
-    게시일: "2024.05.10",
-    좋아요: 10,
-    싫어요: 77
+    nickname: "슬슬귀찮음",
+    content: "주악고악쥐이",
+    comment_date: "2024.05.10",
+    agree: 10,
+    disagree: 77
   },
   {
-    닉네임: "테스트닉네임",
-    내용: "테스형~",
-    게시일: "2024.05.10",
-    좋아요: 10,
-    싫어요: 10
+    nickname: "테스트닉네임",
+    content: "테스형~",
+    comment_date: "2024.05.10",
+    agree: 10,
+    disagree: 10
+  },
+  {
+    user_id: 1,
+    comment_id: 1,
+    nickname: "유저 확인용 닉네임1",
+    content: "삭제 수정 테스트1",
+    comment_date: "2024.05.10",
+    agree: 10,
+    disagree: 10
+  },
+  {
+    user_id: 2,
+    comment_id: 2,
+    nickname: "유저 확인용 닉네임2",
+    content: "삭제 수정 테스트2",
+    comment_date: "2024.05.10",
+    agree: 10,
+    disagree: 10
   }
 ];
 

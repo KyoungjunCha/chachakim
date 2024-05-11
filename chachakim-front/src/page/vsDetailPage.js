@@ -196,7 +196,7 @@ const VsDetailPage = () => {
       {renderBody()}
       <Menu />
       <Header />
-      <Comment id={id} />
+      <Comment />
     </div>
   );
 };
