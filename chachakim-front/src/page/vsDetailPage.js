@@ -186,7 +186,10 @@ const VsDetailPage = () => {
               </div>
             : null}
         </div>
-        {/* <Comment /> */}
+        {/* 05.16 author: kim comment 위치 조정을 위한 수정 */}
+        <div style={{ position: "absolute" }}>
+          <Comment />
+        </div>
       </div>
     );
   };
@@ -196,7 +199,7 @@ const VsDetailPage = () => {
       {renderBody()}
       <Menu />
       <Header />
-      <Comment />
+      {/* <Comment /> */}
     </div>
   );
 };

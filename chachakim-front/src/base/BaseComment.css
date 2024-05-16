@@ -1,14 +1,15 @@
 .BaseComment-container {
-    position: absolute;
-    width: 40vw;
-    left: 30vw;
+    position: relative;
+    width: 855px;
+    /* left: 30vw; */
     /* 폭 조정 */
     /* max-width: 600px; */
 
     /* 최대 폭 설정 */
-    margin: 20px auto;
+    /* margin: 20px auto; */
     /* 중앙 정렬 및 위 아래 마진 조정 */
-    padding: 20px;
+    /* padding: 20px; */
+    margin-top: auto;
     background-color: #f9f9f9;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
