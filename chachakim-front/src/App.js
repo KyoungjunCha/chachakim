@@ -11,6 +11,8 @@ import FIND_PW_PAGE from "./page/FindPwPage"; // 관호 작성
 import CHANGE_PW_PAGE from "./page/ChangePwPage"; // 관호 작성
 import MY_PAGE from "./page/MyPage"; // 관호 작성
 import MY_TAKE_PAGE from "./page/MyTakePage"; // 관호 작성
+import NOTICE_PAGE from "./page/notice/NoticePage"; //차경준 공지사항 작성
+import NOTICE_DETAIL from "./page/noticeDetail/noticeDetail"; //차경준 공지사항 디테일 작성
 
 // import LoginPage from './pages/login/LoginPage_test';
 // import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
@@ -39,6 +41,10 @@ const App = () => {
         <Route path="/MyTakePage" element={<MY_TAKE_PAGE />} />{" "}
         {/* 내가 참여한 게시물 리스트 페이지 이동 관호 작성*/}
         <Route path="*" element={<Navigate to="/main" replace />} />
+        {/* 05.11 공지사항 페이지 author:차경준 */}
+        <Route path="/NoticePage" element={<NOTICE_PAGE />} />
+        {/* 05.13 공지사항 세부 페이지 author:차경준 */}
+        <Route path="/NoticeDetail/:id" element={<NOTICE_DETAIL />} />
       </Routes>
     </BrowserRouter>
   );

@@ -164,4 +164,37 @@ const COMMENT_LIST = [
   }
 ];
 
-export { VS_LIST, SURVEY_LIST, MY_TAKE_LIST, COMMENT_LIST };
+// 차경준 작성 댓글 임시 더미 데이터
+const NOTICE_LIST = [
+  {
+    notice_id: 1,
+    title: "공지1",
+    write_datetime: "2024.05.10",
+    content:
+      "공지 테스트 내용1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111",
+    view_count: 10
+  },
+  {
+    notice_id: 2,
+    title: "공지2",
+    write_datetime: "2024.05.10",
+    content: "공지 테스트 내용2",
+    view_count: 10
+  },
+  {
+    notice_id: 3,
+    title: "공지3",
+    write_datetime: "2024.05.10",
+    content: "공지 테스트 내용3",
+    view_count: 10
+  },
+  {
+    notice_id: 4,
+    title: "공지4",
+    write_datetime: "2024.05.10",
+    content: "공지 테스트 내용4",
+    view_count: 10
+  }
+];
+
+export { VS_LIST, SURVEY_LIST, MY_TAKE_LIST, COMMENT_LIST, NOTICE_LIST };
