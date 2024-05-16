@@ -1,10 +1,15 @@
 import React from "react";
 import Menu from "../base/BaseMenu.js";
 import Header from "../base/BaseHeader.js";
-import { VS_LIST } from "./ListDummy.js";
+import { VS_LIST, BOARD_NAME } from "./ListDummy.js";
+import { useNavigate } from "react-router-dom";
 
 const VsPage = () => {
   const list = VS_LIST;
+  const [page, setPage] = React.useState(BOARD_NAME["VS"])
+  const navigate = useNavigate();
+
+  console.log(page)
 
   const createList = (item) => {
     const list = [];
@@ -92,11 +97,20 @@ const VsPage = () => {
           style={{
             position: "absolute",
             marginTop: "100px",
-            top: "0px",
+            top: "50px",
             width: "85vw",
             left: "250px",
           }}
         >
+          <div style={{width : "80px",fontSize : "10px", marginLeft : "71vw", marginBottom : "10px"}}>
+          <button style={{
+            border : "1px solid", 
+            borderRadius : ".5rem"
+            }}
+            onClick={()=>{
+              navigate(`/${page}/registration`, {state : {pageName : page}})
+            }}>게시글 작성</button>
+          </div>
           <div style={{ display: "flex" }}>
             <div
               style={{
@@ -159,6 +173,7 @@ const VsPage = () => {
               <label>참가수</label>
             </div>
           </div>
+            {createList(list)}
         </div>
       </div>
     );
@@ -166,16 +181,6 @@ const VsPage = () => {
   return (
     <>
       {renderBody()}
-      <div
-        style={{
-          position: "absolute",
-          left: "250px",
-          fontSize: "20px",
-          top: "140px",
-        }}
-      >
-        {createList(list)}
-      </div>
       <Menu />
       <Header />
     </>

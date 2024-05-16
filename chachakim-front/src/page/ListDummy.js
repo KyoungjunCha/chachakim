@@ -1,3 +1,11 @@
+const BOARD_NAME = {
+  VS : "vsPage",
+  SURVEY : "SurveyPage",
+  NOTICE : "NoticePage",
+  EVENT : "EventPage",
+}
+
+
 const VS_LIST = [
     {
       vs이름: "A vs B",
@@ -67,6 +75,9 @@ const VS_LIST = [
       참가수: 62,
     },
   ];
+
   
-  export { VS_LIST, SURVEY_LIST };
+  export { VS_LIST, 
+    SURVEY_LIST,
+    BOARD_NAME };
   
