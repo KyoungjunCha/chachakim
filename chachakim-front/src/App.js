@@ -4,6 +4,7 @@ import VS_PAGE from "./page/vsPage.js";
 import SURVEY_PAGE from "./page/SurveyPage.js";
 import VS_PAGE_DETAIL from "./page/vsDetailPage.js";
 import SURVEY_PAGE_DETAIL from "./page/SurveyDetailPage.js";
+import CREATE_LIST_PAGE from "./page/CreateListPage.js";
 import SIGN_UP_PAGE from "./page/SingUpPage"; // 관호 작성
 import LOGIN_PAGE from "./page/LoginPage"; // 관호 작성
 import FIND_ID_PAGE from "./page/FindIdPage"; // 관호 작성
@@ -25,6 +26,7 @@ const App = () => {
         <Route path="/main" element={<MAIN_PAGE />} />
         <Route path="/vsPage" element={<VS_PAGE />} />
         <Route path="/surveyPage" element={<SURVEY_PAGE />} />
+        <Route path="/:page_name/registration" element={<CREATE_LIST_PAGE />} />
         <Route path="/vsPage/:page_id" element={<VS_PAGE_DETAIL />} />
         <Route path="/surveyPage/:page_id" element={<SURVEY_PAGE_DETAIL />} />
         <Route path="/SignupPage" element={<SIGN_UP_PAGE />} />{" "}

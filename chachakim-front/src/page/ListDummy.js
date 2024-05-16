@@ -1,3 +1,10 @@
+const BOARD_NAME = {
+  VS: "vsPage",
+  SURVEY: "SurveyPage",
+  NOTICE: "NoticePage",
+  EVENT: "EventPage"
+};
+
 const VS_LIST = [
   {
     vs이름: "A vs B",
