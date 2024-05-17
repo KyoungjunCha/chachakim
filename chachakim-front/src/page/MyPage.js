@@ -54,7 +54,8 @@ const MyPage = () => {
             <div>{userInfo.gender}</div>
           </div>
           <button onClick={handleDeleteAccount} style={{ margin: '10px', padding: '10px 20px',width: "90%" }}>회원 탈퇴</button>
-          <button onClick={handleViewMyPosts} style={{ margin: '10px', padding: '10px 20px', width: "90%" }}>내가 참여한 게시물</button>
+          <button onClick={handleViewMyPosts} style={{ margin: '10px', padding: '10px 20px', width: "90%" }}>내가 참여한 VS</button>
+          <button style={{ margin: '10px', padding: '10px 20px', width: "90%" }}>내가 참여한 설문조사</button>
         </div>
       </div>
     </>

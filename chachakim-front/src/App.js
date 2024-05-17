@@ -10,7 +10,9 @@ import FIND_ID_PAGE from "./page/FindIdPage"; // 관호 작성
 import FIND_PW_PAGE from "./page/FindPwPage"; // 관호 작성
 import CHANGE_PW_PAGE from "./page/ChangePwPage"; // 관호 작성
 import MY_PAGE from "./page/MyPage"; // 관호 작성
-import MY_TAKE_PAGE from "./page/MyTakePage"; // 관호 작성
+import MY_TAKE_VS_PAGE from "./page/MyTakeVSPage"; // 관호 작성 및 수정(05.12)
+import MY_TAKE_SURVEY_PAGE from "./page/MyTakeSurveyPage"; // 관호 작성(05.12)
+import FIND_RESULT_ID_PAGE from "./page/FindResultIdPage"; // 관호 작성(05.12) 
 
 // import LoginPage from './pages/login/LoginPage_test';
 // import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
@@ -28,10 +30,12 @@ const App = () => {
         <Route path="/SignupPage" element={<SIGN_UP_PAGE/>} /> {/*회원가입 페이지 이동 관호 작성*/}
         <Route path="/LoginPage" element={<LOGIN_PAGE/>} /> {/* 로그인 페이지 이동 관호 작성*/}
         <Route path="/FindIdPage" element={<FIND_ID_PAGE/>} /> {/* 아이디 찾기 페이지 이동 관호 작성*/}
+        <Route path="/FindResultIdPage" element={<FIND_RESULT_ID_PAGE/>} /> {/* 아이디 찾기 결과 페이지 이동 관호 작성(05.12) */}
         <Route path="/FindPwPage" element={<FIND_PW_PAGE/>} /> {/* 비밀번호 찾기 페이지 이동 관호 작성*/}
         <Route path="/ChangePwPage" element={<CHANGE_PW_PAGE/>} /> {/* 비밀번호 변경 페이지 이동 관호 작성*/}
         <Route path="/MyPage" element={<MY_PAGE/>} /> {/* 내정보 페이지 이동 관호 작성*/}
-        <Route path="/MyTakePage" element={<MY_TAKE_PAGE/>} /> {/* 내가 참여한 게시물 리스트 페이지 이동 관호 작성*/}
+        <Route path="/MyTakeVSPage" element={<MY_TAKE_VS_PAGE/>} /> {/* 내가 참여한 게시물 VS 페이지 이동 관호 작성*/}
+        <Route path="/MyTakeSurveyPage" element={<MY_TAKE_SURVEY_PAGE/>} /> {/* 내가 참여한 설문 리스트 페이지 이동 관호 작성(05.12)*/}
         <Route path="*" element={<Navigate to="/main" replace />} />
       </Routes>
     </BrowserRouter>

@@ -38,7 +38,8 @@ const FindPwPage = () => {
       <Menu />
       <Header />
       <div style={{ display: "flex", justifyContent: "center", padding: "20px", marginLeft: "450px" }}>
-        <form style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", width: "50%" }}>
+        <form style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", width: "55%" }}>
+          <h2 style = {{marginLeft: "95px"}}>비밀번호 찾기</h2>
           <div style={{ marginBottom: '10px', display: 'flex', alignItems: 'center' }}>
             <label style={{ width: '75px', marginRight: '10px' }}>아이디:</label>
             <input

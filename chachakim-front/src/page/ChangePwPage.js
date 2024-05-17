@@ -5,6 +5,12 @@ import Menu from "../base/BaseMenu.js";
 const ChangePwPage = () => {
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [presentPassword, setPresentPassword] = useState('');
+
+
+  const handlePresentPasswordChange = (e) => {
+    setPresentPassword(e.target.value);
+  };
 
   const handleNewPasswordChange = (e) => {
     setNewPassword(e.target.value);
@@ -29,7 +35,20 @@ const ChangePwPage = () => {
       <Menu />
       <Header />
       <div style={{ display: "flex", justifyContent: "center", padding: "20px", marginLeft: "450px" }}>
-        <form style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", width: "50%" }}>
+      
+        <form style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", width: "85%" }}>
+        <h2 style = {{marginLeft: "100px"}}>비밀번호 변경</h2>
+        <div style={{ marginBottom: '10px', display: 'flex', alignItems: 'center' }}>
+            <label style={{ width: '120px', marginRight: '10px' }}>현재 비밀번호:</label>
+            <input
+              type="password"
+              placeholder="현재 비밀번호 입력"
+              value={presentPassword}
+              onChange={handlePresentPasswordChange}
+              required
+            />
+          </div>
+
           <div style={{ marginBottom: '10px', display: 'flex', alignItems: 'center' }}>
             <label style={{ width: '120px', marginRight: '10px' }}>새 비밀번호:</label>
             <input
@@ -40,11 +59,12 @@ const ChangePwPage = () => {
               required
             />
           </div>
+
           <div style={{ marginBottom: '10px', display: 'flex', alignItems: 'center' }}>
             <label style={{ width: '120px', marginRight: '10px' }}>비밀번호 확인:</label>
             <input
               type="password"
-              placeholder="비밀번호 확인"
+              placeholder="새 비밀번호 확인"
               value={confirmPassword}
               onChange={handleConfirmPasswordChange}
               required
