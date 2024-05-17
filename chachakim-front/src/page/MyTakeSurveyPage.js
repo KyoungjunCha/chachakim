@@ -1,10 +1,10 @@
 import React from "react";
 import Menu from "../base/BaseMenu.js";
 import Header from "../base/BaseHeader.js";
-import { MY_TAKE_LIST } from "./ListDummy.js";
+import { MY_TAKE_SURVEY_LIST } from "./ListDummy.js";
 
-const MyTakePage = () => {
-  const list = MY_TAKE_LIST;
+const MyTakeSurveyPage = () => {
+  const list = MY_TAKE_SURVEY_LIST;
 
   const createList = (item) => {
     const list = [];
@@ -182,4 +182,4 @@ const MyTakePage = () => {
   );
 };
 
-export default MyTakePage;
+export default MyTakeSurveyPage;

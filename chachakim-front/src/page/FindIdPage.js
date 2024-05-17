@@ -34,6 +34,7 @@ const FindIdPage = () => {
       <Header />
       <div style={{ display: "flex", justifyContent: "center", padding: "20px", marginLeft: "450px" }}>
         <form style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", width: "50%" }}>
+          <h2 style = {{marginLeft: "100px"}}>아이디 찾기</h2>
           <div style={{ marginBottom: '10px', display: 'flex', alignItems: 'center' }}>
             <label style={{ width: '120px', marginRight: '10px' }}>
               전화번호:

@@ -3,8 +3,8 @@
     "version": "2.2.13",
     "width": 2000,
     "height": 2000,
-    "scrollTop": -275.87527083333316,
-    "scrollLeft": -67.3387575677434,
+    "scrollTop": -260.87527541097006,
+    "scrollLeft": -228.921875,
     "zoomLevel": 0.8,
     "show": {
       "tableComment": true,
@@ -1020,7 +1020,7 @@
       },
       {
         "id": "b680e91d-3037-42b2-804e-a22a9990b1bf",
-        "name": "noteice",
+        "name": "notice",
         "comment": "공지사항",
         "columns": [
           {
@@ -1143,7 +1143,7 @@
           "active": false,
           "left": 1293.75,
           "top": 374.9026,
-          "zIndex": 1,
+          "zIndex": 10,
           "widthName": 60,
           "widthComment": 60,
           "color": "#E91E63"

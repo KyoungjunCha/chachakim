@@ -36,7 +36,11 @@ const Menu = (props) => {
     return (
       <div
         style={{
+<<<<<<< HEAD
           position: "fixed",
+=======
+          position: "absolute",
+>>>>>>> a752487c8269821371a0a17aab46da418d9e6a5b
           border: "1px solid",
           padding: "50px 10px 10px 10px",
           top: "0px",
