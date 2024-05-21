@@ -20,8 +20,9 @@ public class NoticeServiceImpl implements NoticeService  {
     }
 
     @Override // 공지사항 클릭 시 각 항목별 상세 보기
-    public NoticeVO view(int noticeId){
-        return mapper.view(noticeId);
+    public NoticeVO view(int notice_Id){
+        System.out.println("NoticeServiceImpl.view() 실행중입니다. 즉 서비스까진 넘어온거임");
+        return mapper.view(notice_Id);
     }
 
 /*
@@ -38,7 +39,7 @@ public class NoticeServiceImpl implements NoticeService  {
     }
 
     @Override // 공지사항 글 삭제하기
-    public int delete(int noticeId){
+    public int delete(int notice_Id){
         return 0;
     }
      */

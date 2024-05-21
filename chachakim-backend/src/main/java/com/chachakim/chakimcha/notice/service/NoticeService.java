@@ -10,7 +10,7 @@ public interface NoticeService {
     public List<NoticeVO> list();
 
     // 공지사항 클릭 시 각 항목별 상세 보기
-    public NoticeVO view(int noticeId);
+    public NoticeVO view(int notice_Id);
 
     /* 
     // 공지사항 글 등록하기
@@ -20,6 +20,6 @@ public interface NoticeService {
     public int update(NoticeVO vo);
 
     // 공지사항 글 삭제하기
-    public int delete(int noticeId);
+    public int delete(int notice_Id);
     */
 } 

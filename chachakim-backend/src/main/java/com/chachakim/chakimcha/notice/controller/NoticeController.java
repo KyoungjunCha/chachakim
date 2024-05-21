@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.chachakim.chakimcha.notice.service.NoticeService;
+import com.chachakim.chakimcha.notice.vo.NoticeVO;
 
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -21,12 +22,19 @@ public class NoticeController {
     @GetMapping("/list")
     public String list(){
         System.out.println("공지사항 리스트입니다.");
-        return "/WEB-INF/views/hello.jsp";    
+        return "home";
     }
-
+ // return "redirect:/base/hello.html";
     @GetMapping("/view")
     public String view(){
         System.out.println("공지사항 각 항목별 상세보기입니다.");
+       NoticeVO vo = service.view(1);
+        System.out.println("여긴 실행되냐?");
+       if(vo != null){
+        System.out.println(vo);
+       }
+        
+
         return null;
     }
 

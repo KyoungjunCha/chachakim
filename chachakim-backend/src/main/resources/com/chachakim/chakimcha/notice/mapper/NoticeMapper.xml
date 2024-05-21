@@ -7,7 +7,7 @@
   <select id = "view" resultType = "com.chachakim.chakimcha.notice.vo.NoticeVO">
     select notice_id, title, write_datetime, content, view_count
     from notice
-    where notie_id in (1)
+    where notice_id in (#{notice_id})
   </select>
 
 </mapper>

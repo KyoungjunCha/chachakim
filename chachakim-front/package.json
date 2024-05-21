@@ -2,6 +2,8 @@
   "name": "front",
   "version": "0.1.0",
   "private": true,
+  "//proxy": "스프링부트와 리액트 연결을 위한 프록시 설정 - 관호 작성",
+  "proxy": "http://localhost:4000",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -13,7 +15,7 @@
     "@types/react-router-dom": "^5.3.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^6.23.0",
+    "react-router-dom": "^6.23.1",
     "react-scripts": "5.0.1",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
