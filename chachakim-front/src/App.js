@@ -14,6 +14,8 @@ import MY_TAKE_VS_PAGE from "./page/MyTakeVSPage"; // 관호 작성 및 수정(0
 import MY_TAKE_SURVEY_PAGE from "./page/MyTakeSurveyPage"; // 관호 작성(05.12)
 import FIND_RESULT_ID_PAGE from "./page/FindResultIdPage"; // 관호 작성(05.12) 
 
+import MY_TAKE_VS_PAGE_TEST from "./page/MyTakeVSPageTest"; // 관호 작성 및 수정(05.12)
+
 // import LoginPage from './pages/login/LoginPage_test';
 // import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
@@ -36,6 +38,7 @@ const App = () => {
         <Route path="/MyPage" element={<MY_PAGE/>} /> {/* 내정보 페이지 이동 관호 작성*/}
         <Route path="/MyTakeVSPage" element={<MY_TAKE_VS_PAGE/>} /> {/* 내가 참여한 게시물 VS 페이지 이동 관호 작성*/}
         <Route path="/MyTakeSurveyPage" element={<MY_TAKE_SURVEY_PAGE/>} /> {/* 내가 참여한 설문 리스트 페이지 이동 관호 작성(05.12)*/}
+        <Route path="/MyTakeVSPageTest" element={<MY_TAKE_VS_PAGE_TEST/>} /> {/* 내가 참여한 게시물 VS 페이지 테스트 작성 이동 관호 작성(05.24)*/}
         <Route path="*" element={<Navigate to="/main" replace />} />
       </Routes>
     </BrowserRouter>
