@@ -5,7 +5,7 @@ import Comment from "../base/BaseComment.js";
 import PropType from "prop-types";
 import { useLocation } from "react-router-dom";
 import { VS_LIST } from "./ListDummy.js";
-import "./vsDetailPage.css";
+import "./VsDetailPage.css";
 
 const VsDetailPage = () => {
   const location = useLocation();
@@ -14,12 +14,6 @@ const VsDetailPage = () => {
   const [isDisplay, setIsDisplay] = React.useState(false);
   const [frontPersent, setFrontPersent] = React.useState();
   const [backPersent, setBackPersent] = React.useState();
-
-  const changeWidth = (e, place, width) => {
-    if ((place = "front")) {
-      setFrontPersent(e.target.value);
-    }
-  };
 
   const renderBody = () => {
     return (

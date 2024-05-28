@@ -1,11 +1,12 @@
 import React from "react";
 import Menu from "../../base/BaseMenu.js";
 import Header from "../../base/BaseHeader.js";
-import { NOTICE_LIST } from "../ListDummy.js";
+import { NOTICE_LIST, BOARD_NAME } from "../ListDummy.js";
 import { useNavigate } from "react-router-dom";
 
 const NoticePage = () => {
   const list = NOTICE_LIST;
+  const [page, setPage] = React.useState(BOARD_NAME["NOTICE"])
   const navigate = useNavigate();
 
   const createList = (item) => {
@@ -120,12 +121,12 @@ const NoticePage = () => {
           style={{
               position: "absolute",
               marginTop: "30px",
-              top: "0px",
+              top: "50px",
               width: "85vw",
               left: "400px",
             }}
             >
-            <div style={{
+            {/* <div style={{
                 // display:"flex",
                 width:"85vw",
                 marginTop:"30px",
@@ -138,7 +139,16 @@ const NoticePage = () => {
                     fontSize:"20px"
                 }}>
                     글작성</button>
-            </div>
+            </div> */}
+            <div style={{width : "80px",fontSize : "10px", marginLeft : "50vw", marginBottom : "10px"}}>
+          <button style={{
+            border : "1px solid", 
+            borderRadius : ".5rem"
+            }}
+            onClick={()=>{
+              navigate(`/${page}/registration`, {state : {pageName : page}})
+            }}>게시글 작성</button>
+          </div>
           <div style={{ display: "flex" }}>
             <div
               style={{
@@ -181,6 +191,7 @@ const NoticePage = () => {
               <label>조회수</label>
             </div>
           </div>
+          {createList(list)}
         </div>
       </div>
     );
@@ -188,16 +199,6 @@ const NoticePage = () => {
   return (
     <>
       {renderBody()}
-      <div
-        style={{
-          position: "absolute",
-          left: "400px",
-          fontSize: "20px",
-          top: "140px",
-        }}
-      >
-        {createList(list)}
-      </div>
       <Menu />
       <Header />
     </>

@@ -1,10 +1,11 @@
 import "./App.css";
 import MAIN_PAGE from "./page/MainPage.js";
-import VS_PAGE from "./page/vsPage.js";
+import VS_PAGE from "./page/VsPage.js";
 import SURVEY_PAGE from "./page/SurveyPage.js";
-import VS_PAGE_DETAIL from "./page/vsDetailPage.js";
+import VS_PAGE_DETAIL from "./page/VsDetailPage.js";
 import SURVEY_PAGE_DETAIL from "./page/SurveyDetailPage.js";
 import CREATE_LIST_PAGE from "./page/CreateListPage.js";
+import SEARCH_PAGE from "./page/SearchPage"; //정현 검색 버튼 클릭 시, 표시 되는 페이지
 import SIGN_UP_PAGE from "./page/SingUpPage"; // 관호 작성
 import LOGIN_PAGE from "./page/LoginPage"; // 관호 작성
 import FIND_ID_PAGE from "./page/FindIdPage"; // 관호 작성
@@ -24,6 +25,7 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/main" element={<MAIN_PAGE />} />
+        <Route path="/search/:searchData" element={<SEARCH_PAGE />} />
         <Route path="/vsPage" element={<VS_PAGE />} />
         <Route path="/surveyPage" element={<SURVEY_PAGE />} />
         <Route path="/:page_name/registration" element={<CREATE_LIST_PAGE />} />
@@ -42,11 +44,11 @@ const App = () => {
         <Route path="/MyPage" element={<MY_PAGE />} /> {/* 내정보 페이지 이동 관호 작성*/}
         <Route path="/MyTakePage" element={<MY_TAKE_PAGE />} />{" "}
         {/* 내가 참여한 게시물 리스트 페이지 이동 관호 작성*/}
-        <Route path="*" element={<Navigate to="/main" replace />} />
         {/* 05.11 공지사항 페이지 author:차경준 */}
         <Route path="/NoticePage" element={<NOTICE_PAGE />} />
         {/* 05.13 공지사항 세부 페이지 author:차경준 */}
         <Route path="/NoticeDetail/:id" element={<NOTICE_DETAIL />} />
+        <Route path="*" element={<Navigate to="/main" replace />} />
       </Routes>
     </BrowserRouter>
   );

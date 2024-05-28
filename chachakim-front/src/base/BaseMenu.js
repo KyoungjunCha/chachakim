@@ -10,6 +10,8 @@ const Menu = (props) => {
       navigate("/vsPage");
     } else if (id === "설문") {
       navigate("/surveyPage");
+    } else if (id === "공지사항"){
+      navigate("/noticePage")
     }
   };
 
