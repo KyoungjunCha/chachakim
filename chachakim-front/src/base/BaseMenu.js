@@ -10,11 +10,8 @@ const Menu = (props) => {
       navigate("/vsPage");
     } else if (id === "설문") {
       navigate("/surveyPage");
-<<<<<<< HEAD
     } else if (id === "공지사항"){
       navigate("/noticePage")
-=======
->>>>>>> f505ac9ceab929bd19f97e58ec802cd80ce73356
     }
   };
 
@@ -41,11 +38,7 @@ const Menu = (props) => {
     return (
       <div
         style={{
-<<<<<<< HEAD
           position: "fixed",
-=======
-          position: "absolute",
->>>>>>> f505ac9ceab929bd19f97e58ec802cd80ce73356
           border: "1px solid",
           padding: "50px 10px 10px 10px",
           top: "0px",

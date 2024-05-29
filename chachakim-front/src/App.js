@@ -12,7 +12,6 @@ import FIND_ID_PAGE from "./page/FindIdPage"; // 관호 작성
 import FIND_PW_PAGE from "./page/FindPwPage"; // 관호 작성
 import CHANGE_PW_PAGE from "./page/ChangePwPage"; // 관호 작성
 import MY_PAGE from "./page/MyPage"; // 관호 작성
-import MY_TAKE_PAGE from "./page/MyTakePage"; // 관호 작성
 import NOTICE_PAGE from "./page/notice/NoticePage"; //차경준 공지사항 작성
 import NOTICE_DETAIL from "./page/noticeDetail/noticeDetail"; //차경준 공지사항 디테일 작성
 import MY_TAKE_VS_PAGE from "./page/MyTakeVSPage"; // 관호 작성 및 수정(05.12)
@@ -47,7 +46,6 @@ const App = () => {
         <Route path="/ChangePwPage" element={<CHANGE_PW_PAGE />} />{" "}
         {/* 비밀번호 변경 페이지 이동 관호 작성*/}
         <Route path="/MyPage" element={<MY_PAGE />} /> {/* 내정보 페이지 이동 관호 작성*/}
-        <Route path="/MyTakePage" element={<MY_TAKE_PAGE />} />{" "}
         {/* 내가 참여한 게시물 리스트 페이지 이동 관호 작성*/}
         {/* 05.11 공지사항 페이지 author:차경준 */}
         <Route path="/NoticePage" element={<NOTICE_PAGE />} />

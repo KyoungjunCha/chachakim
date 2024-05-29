@@ -5,7 +5,7 @@ import Comment from "../base/BaseComment.js";
 import PropType from "prop-types";
 import { useLocation } from "react-router-dom";
 import { VS_LIST } from "./ListDummy.js";
-import "./VsDetailPage.css";
+import "./vsDetailPage.css";
 
 const VsDetailPage = () => {
   const location = useLocation();
