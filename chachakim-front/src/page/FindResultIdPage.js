@@ -1,0 +1,36 @@
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import Header from "../base/BaseHeader.js";
+import Menu from "../base/BaseMenu.js";
+
+const FindResultIdPage = () => {
+  const userId = 'chachakim';  // 예시로 설정된 사용자 ID
+  const navigate = useNavigate();
+
+  const handleLogin = () => {
+    navigate("/LoginPage");
+  };
+
+  const handleFindPw = () => {
+    navigate("/FindPwPage");
+  };
+
+  return (
+    <>
+      <Menu />
+      <Header />
+      <div style={{ display: "flex", justifyContent: "center", padding: "20px", marginLeft: "450px" }}>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "100%" }}>
+          <h2 style={{marginLeft:  "30px"}}>아이디 찾기 결과</h2>
+          <p>회원님의 아이디는 <strong>{userId}</strong>입니다.</p>
+          <div style={{ marginTop: '20px' }}>
+            <button onClick={handleLogin} style={{ margin: '10px', padding: '10px 20px',width: "90%" }}>로그인하러가기</button>
+            <button onClick={handleFindPw} style={{ margin: '10px', padding: '10px 20px',width: "90%" }}>비밀번호 찾기</button>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default FindResultIdPage;

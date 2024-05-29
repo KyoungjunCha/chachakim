@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Header from "../base/BaseHeader.js";
 import Menu from "../base/BaseMenu.js";
 
@@ -8,6 +9,8 @@ const FindPwPage = () => {
   const [verificationCode, setVerificationCode] = useState('');
   const [codeSent, setCodeSent] = useState(false);
   const [passwordReset, setPasswordReset] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleUserIdChange = (e) => {
     setUserId(e.target.value);
@@ -33,12 +36,17 @@ const FindPwPage = () => {
     alert("인증번호가 확인되었습니다. 비밀번호를 재설정해주세요.");
   };
 
+  const handlePw = () => {
+    navigate("/LoginPage");
+  };
+
   return (
     <>
       <Menu />
       <Header />
       <div style={{ display: "flex", justifyContent: "center", padding: "20px", marginLeft: "450px" }}>
-        <form style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", width: "50%" }}>
+        <form style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", width: "55%" }}>
+          <h2 style = {{marginLeft: "95px"}}>비밀번호 찾기</h2>
           <div style={{ marginBottom: '10px', display: 'flex', alignItems: 'center' }}>
             <label style={{ width: '75px', marginRight: '10px' }}>아이디:</label>
             <input
@@ -87,7 +95,7 @@ const FindPwPage = () => {
                 required
                 style={{ flex: 1 }}
               />
-              <button style={{ marginLeft: '10px' }}>비밀번호 재설정</button>
+              <button  onClick={handlePw} style={{ marginLeft: '10px' }}>비밀번호 재설정</button>
             </div>
           )}
         </form>

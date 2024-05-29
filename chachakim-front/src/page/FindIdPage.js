@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Header from "../base/BaseHeader.js";
 import Menu from "../base/BaseMenu.js";
 
@@ -6,6 +7,8 @@ const FindIdPage = () => {
   const [phone, setPhone] = useState('');
   const [verificationCode, setVerificationCode] = useState('');
   const [codeSent, setCodeSent] = useState(false);
+
+  const navigate = useNavigate();
 
   const handlePhoneChange = (e) => {
     setPhone(e.target.value);
@@ -25,7 +28,7 @@ const FindIdPage = () => {
   const verifyCodeAndFindId = (e) => {
     e.preventDefault();
     // 인증번호 확인 후 아이디 찾기 로직 구현
-    alert("아이디를 찾는 로직을 구현해야 합니다.");
+    navigate("/FindResultIdPage");
   };
 
   return (
@@ -34,6 +37,7 @@ const FindIdPage = () => {
       <Header />
       <div style={{ display: "flex", justifyContent: "center", padding: "20px", marginLeft: "450px" }}>
         <form style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", width: "50%" }}>
+          <h2 style = {{marginLeft: "100px"}}>아이디 찾기</h2>
           <div style={{ marginBottom: '10px', display: 'flex', alignItems: 'center' }}>
             <label style={{ width: '120px', marginRight: '10px' }}>
               전화번호:
