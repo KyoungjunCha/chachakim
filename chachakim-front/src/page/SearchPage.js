@@ -14,7 +14,7 @@ const SearchPage = () => {
             <div style={{border : "1px solid", position : "relative", bottom : "100", left : "250px"}}>
                 <div>
                     <div>
-                    <label>VS</label>
+                        <label>VS</label>
                     </div>
                     <div>
                         <label>list</label>
