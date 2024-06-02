@@ -16,32 +16,38 @@ public class NoticeServiceImpl implements NoticeService  {
 
     @Override  // 공지사항 리스트 보여주기
     public List<NoticeVO> list(){
-        return null;
+        System.out.println("NoticeServiceImpl.view() 실행중입니다.");
+        return mapper.list();
     }
 
     @Override // 공지사항 클릭 시 각 항목별 상세 보기
     public NoticeVO view(int notice_Id){
-        System.out.println("NoticeServiceImpl.view() 실행중입니다. 즉 서비스까진 넘어온거임");
+        System.out.println("NoticeServiceImpl.view() 실행중입니다.");
         return mapper.view(notice_Id);
     }
 
-/*
-
-
     @Override // 공지사항 글 등록하기
     public int write(NoticeVO vo){
-        return 0;
+        System.out.println("NoticeServiceImpl.write() 실행중입니다.");
+        return mapper.write(vo);
     }
 
     @Override  // 공지사항 글 수정하기
     public int update(NoticeVO vo){
-        return 0;
+        System.out.println("NoticeServiceImpl.update() 실행중입니다.");
+        return mapper.update(vo);
     }
 
     @Override // 공지사항 글 삭제하기
     public int delete(int notice_Id){
-        return 0;
+        System.out.println("NoticeServiceImpl.delete() 실행중입니다.");
+        return mapper.delete(notice_Id);
     }
-     */
+
+    @Override  // 공지사항 조회수 1 상승
+    public int increaseview(int notice_Id){
+        System.out.println("NoticeServiceImpl.increaseview() 실행중입니다.");
+        return mapper.increaseview(notice_Id);
+    }
     
 } 

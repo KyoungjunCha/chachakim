@@ -12,7 +12,6 @@ public interface NoticeService {
     // 공지사항 클릭 시 각 항목별 상세 보기
     public NoticeVO view(int notice_Id);
 
-    /* 
     // 공지사항 글 등록하기
     public int write(NoticeVO vo);
 
@@ -21,5 +20,7 @@ public interface NoticeService {
 
     // 공지사항 글 삭제하기
     public int delete(int notice_Id);
-    */
+
+    // 공지사항 조회수 1 상승
+    public int increaseview(int notice_Id);
 } 
