@@ -7,7 +7,7 @@ const MyTakeVSPageTest = () => {
 
   useEffect(() => {
     console.log("useEffect called"); // useEffect가 호출될 때마다 로그 출력
-    axios.get("/notice/view")
+    axios.get("/notice/delete")
       .then((res) => {
         console.log(res.data); // 반환된 데이터를 콘솔에 출력
         setNotice(res.data);

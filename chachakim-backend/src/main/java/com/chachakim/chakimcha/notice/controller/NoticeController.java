@@ -29,10 +29,12 @@ public class NoticeController {
         System.out.println("NoticeController의 list 메서드 입니다.");
 
         List<NoticeVO> vo = service.list(); // 모든 공지사항을 리스트 형태로 가져오기
+
+        System.out.println("데이터가 컨트롤러까지 잘 돌아왔나 : " + vo);
         return vo;
     }
     
-    @GetMapping("/view")
+    @GetMapping("/{notice_Id}")
     public NoticeVO view(int notice_Id){
         System.out.println("NoticeController의 view 메서드 입니다.");
 

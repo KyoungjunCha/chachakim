@@ -25,15 +25,20 @@
     SET title = #{title}, 
         write_datetime = DATE_FORMAT(DATE_ADD(NOW(), INTERVAL -FLOOR(RAND() * 100) DAY), '%Y-%m-%d %H:%i:%s'), 
         content = #{content}
-    WHERE notice_id = #{notice_id}
-</update>
+    WHERE notice_id = #{notice_Id}
+  </update>
 
   <update id="increaseview">
     UPDATE notice
     SET view_count = view_count + 1
-    WHERE notice_id = #{notice_id}
-</update>
+    WHERE notice_id = #{notice_Id}
+  </update>
 
+  <delete id="delete">
+    DELETE
+    FROM notice
+    WHERE notice_id = #{notice_Id}
+  </delete>
 
 
 
