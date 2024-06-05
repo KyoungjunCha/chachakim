@@ -12,8 +12,8 @@ import FIND_PW_PAGE from "./page/FindPwPage"; // 관호 작성
 import CHANGE_PW_PAGE from "./page/ChangePwPage"; // 관호 작성
 import MY_PAGE from "./page/MyPage"; // 관호 작성
 import MY_TAKE_PAGE from "./page/MyTakePage"; // 관호 작성
-import NOTICE_PAGE from "./page/notice/NoticePage"; //차경준 공지사항 작성
-import NOTICE_DETAIL from "./page/noticeDetail/noticeDetail"; //차경준 공지사항 디테일 작성
+import NOTICE_PAGE from "./page/notice/NoticePageApi"; //차경준 공지사항 작성
+import NOTICE_DETAIL from "./page/noticeDetail/noticeDetailApi"; //차경준 공지사항 디테일 작성
 import MY_TAKE_VS_PAGE from "./page/MyTakeVSPage"; // 관호 작성 및 수정(05.12)
 import MY_TAKE_SURVEY_PAGE from "./page/MyTakeSurveyPage"; // 관호 작성(05.12)
 import FIND_RESULT_ID_PAGE from "./page/FindResultIdPage"; // 관호 작성(05.12)
@@ -59,9 +59,9 @@ const App = () => {
         {/* 내가 참여한 설문 리스트 페이지 이동 관호 작성(05.12)*/}
         <Route path="*" element={<Navigate to="/main" replace />} />
         {/* 05.11 공지사항 페이지 author:차경준 */}
-        <Route path="/NoticePage" element={<NOTICE_PAGE />} />
+        <Route path="/api/notices" element={<NOTICE_PAGE />} />
         {/* 05.13 공지사항 세부 페이지 author:차경준 */}
-        <Route path="/NoticeDetail/:id" element={<NOTICE_DETAIL />} />
+        <Route path="/notices/:id" element={<NOTICE_DETAIL />} />
       </Routes>
     </BrowserRouter>
   );

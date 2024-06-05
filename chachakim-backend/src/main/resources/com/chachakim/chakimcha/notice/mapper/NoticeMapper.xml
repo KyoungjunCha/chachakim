@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.chachakim.chakimcha.notice.mapper.NoticeMapper">
+
+    <select id="getNoticeList" resultType="com.chachakim.chakimcha.notice.vo.NoticeVO">
+        SELECT notice_id as noticeId, title, write_datetime as writeDatetime, content, view_count as viewCount
+        FROM notice
+    </select>
+
+    <select id="getNoticeById" parameterType="int" resultType="com.chachakim.chakimcha.notice.vo.NoticeVO">
+        SELECT notice_id as noticeId, title, write_datetime as writeDatetime, content, view_count as viewCount
+        FROM notice
+        WHERE notice_id = #{noticeId}
+    </select>
+
+    <insert id="insertNotice" parameterType="com.chachakim.chakimcha.notice.vo.NoticeVO">
+        INSERT INTO notice (title, write_datetime, content, view_count)
+        VALUES (#{title}, #{writeDatetime}, #{content}, #{viewCount})
+    </insert>
+
+    <update id="updateNotice" parameterType="com.chachakim.chakimcha.notice.vo.NoticeVO">
+        UPDATE notice SET
+            title = #{title},
+            write_datetime = #{writeDatetime},
+            content = #{content},
+            view_count = #{viewCount}
+        WHERE notice_id = #{noticeId}
+    </update>
+
+    <delete id="deleteNotice" parameterType="int">
+        DELETE FROM notice WHERE notice_id = #{noticeId}
+    </delete>
+
+</mapper>

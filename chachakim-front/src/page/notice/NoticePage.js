@@ -75,7 +75,7 @@ const NoticePage = () => {
             cursor: "pointer",
             bottom:"100px"
           }}
-          onClick={() => navigate(`/noticeDetail/${listItem.notice_id}`)}  // 클릭 이벤트 핸들러로 navigate 함수 사용
+          onClick={() => navigate(`/notice/${listItem.notice_id}`)}  // 클릭 이벤트 핸들러로 navigate 함수 사용
         >
           <div style={{
              width: " 10vw",
