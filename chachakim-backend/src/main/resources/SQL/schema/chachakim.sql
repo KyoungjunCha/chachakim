@@ -1,4 +1,4 @@
-ALTER DATABASE chachakim CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci; -- 데이터베이스의 문자 집합을 UTF-8로 설정
+ALTER DATABASE chachakimdb CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci; -- 데이터베이스의 문자 집합을 UTF-8로 설정
 CREATE TABLE user
 (
   id             VARCHAR(100) NOT NULL COMMENT '사용자 아이디',
