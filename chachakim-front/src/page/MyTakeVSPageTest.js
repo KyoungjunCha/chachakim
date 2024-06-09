@@ -5,9 +5,14 @@ const MyTakeVSPageTest = () => {
   const [notice, setNotice] = useState(null);
   const [error, setError] = useState(null);
 
+  // API 기본 URL 정의
+  const apiUrl = 'http://chachakimbackend-env.eba-auqeeqas.ap-northeast-2.elasticbeanstalk.com';
+
   useEffect(() => {
     console.log("useEffect called"); // useEffect가 호출될 때마다 로그 출력
-    axios.get("/notice/view")
+
+    // axios 요청에서 API 기본 URL 사용
+    axios.get(`${apiUrl}/notice/view`)
       .then((res) => {
         console.log(res.data); // 반환된 데이터를 콘솔에 출력
         setNotice(res.data);
