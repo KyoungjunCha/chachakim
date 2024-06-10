@@ -13,7 +13,6 @@ const CreateListPage = () => {
     const [pageTitle, setPageTitle] = React.useState({vsPage : "VS", SurveyPage : "설문", NoticePage : "공지사항", EventPage : "Event"})
     const [listCount, setListCount] = React.useState(3)
     const navigate = useNavigate();
-    console.log(pageTitle[page_name])
 
     const renderBody = () => {
         return(

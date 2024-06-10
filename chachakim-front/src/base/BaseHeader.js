@@ -25,7 +25,7 @@ const Header = () => {
             value={searchData}
             onChange={(e)=>{setSearchData(e.target.value)}}></input>
           <button 
-            onClick={()=>{navigate(`/search/${searchData}`)}}
+            onClick={()=>{navigate(`/search/${searchData}`, {state : {display : "searchPage"}})}}
             className="BaseHeader-search-button">검색</button>
         </div>
         <label className="BaseHeader-username">name</label>
