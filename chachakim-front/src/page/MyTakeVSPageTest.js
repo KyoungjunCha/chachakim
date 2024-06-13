@@ -5,22 +5,21 @@ const MyTakeVSPageTest = () => {
   const [notice, setNotice] = useState(null);
   const [error, setError] = useState(null);
 
-  // API 기본 URL 정의
-  const apiUrl = 'http://chachakimbackend-env.eba-auqeeqas.ap-northeast-2.elasticbeanstalk.com';
+  const apiUrl = 'https://chachakimbackend-env.eba-auqeeqas.ap-northeast-2.elasticbeanstalk.com';
 
   useEffect(() => {
-    console.log("useEffect called"); // useEffect가 호출될 때마다 로그 출력
+    console.log("useEffect called");
 
-    // axios 요청에서 API 기본 URL 사용
     axios.get(`${apiUrl}/notice/view`)
       .then((res) => {
-        console.log(res.data); // 반환된 데이터를 콘솔에 출력
+        console.log("Response data:", res.data);
         setNotice(res.data);
       })
       .catch((err) => {
+        console.error("Error occurred:", err);
         setError(err.toString());
       });
-  }, []); // 의존성 배열이 빈 배열이면 마운트 시에만 실행됩니다.
+  }, []);
 
   return (
     <div style={{ fontSize: "25px", textAlign: "center", marginTop: "100px" }}>

@@ -39,8 +39,11 @@ public class NoticeController {
     public NoticeVO view(){
        System.out.println("NoticeController의 view 메서드 입니다.");
        int notice_Id = 1;
-       int result = service.increaseview(notice_Id); // 클릭 한 공지사항 조회수 1 증가
-       NoticeVO vo = service.view(notice_Id); // 클릭한 공지사항 상세정보 가져오기
+       //int result = service.increaseview(notice_Id); // 클릭 한 공지사항 조회수 1 증가
+       //NoticeVO vo = service.view(notice_Id); // 클릭한 공지사항 상세정보 가져오기
+       NoticeVO vo = new NoticeVO();
+       vo.setTitle("title2");
+       vo.setContent("content2");
        return vo;
     }
 
