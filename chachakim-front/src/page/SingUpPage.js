@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import Header from "../base/BaseHeader.js";
 import Menu from "../base/BaseMenu.js";
 
@@ -15,7 +14,6 @@ const SignupPage = () => {
     gender: '',
     birthDate: ''
   });
-  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -29,10 +27,6 @@ const SignupPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
-  };
-
-  const handleSignUp = () => {
-    navigate("/main");
   };
 
   const labels = {
@@ -69,7 +63,7 @@ const SignupPage = () => {
               />
             </div>
           ))}
-          <button type="submit" onClick={handleSignUp} style={{ width: '100%', padding: '10px' }}>회원가입</button>
+          <button type="submit" style={{ width: '100%', padding: '10px' }}>회원가입</button>
         </form>
       </div>
     </>

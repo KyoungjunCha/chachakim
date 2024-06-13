@@ -5,12 +5,12 @@ const MyTakeVSPageTest = () => {
   const [notice, setNotice] = useState(null);
   const [error, setError] = useState(null);
 
-  const apiUrl = 'https://chachakimbackend-env.eba-auqeeqas.ap-northeast-2.elasticbeanstalk.com';
+  const apiUrl = '/api';
 
   useEffect(() => {
     console.log("useEffect called");
 
-    axios.get(`${apiUrl}/notice/view`)
+    axios.delete(`${apiUrl}/20`)
       .then((res) => {
         console.log("Response data:", res.data);
         setNotice(res.data);

@@ -1,0 +1,37 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-chachakimfront-dev-d0f37-authRole",
+      "UnauthRoleArn": "arn:aws:iam::767397731848:role/amplify-chachakimfront-dev-d0f37-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::767397731848:role/amplify-chachakimfront-dev-d0f37-authRole",
+      "Region": "ap-northeast-2",
+      "DeploymentBucketName": "amplify-chachakimfront-dev-d0f37-deployment",
+      "UnauthRoleName": "amplify-chachakimfront-dev-d0f37-unauthRole",
+      "StackName": "amplify-chachakimfront-dev-d0f37",
+      "StackId": "arn:aws:cloudformation:ap-northeast-2:767397731848:stack/amplify-chachakimfront-dev-d0f37/c1627330-22e3-11ef-9583-06414a6290b5",
+      "AmplifyAppId": "d33evmuo7ydps4"
+    }
+  },
+  "hosting": {
+    "S3AndCloudFront": {
+      "service": "S3AndCloudFront",
+      "providerPlugin": "awscloudformation",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-chachakimfront-dev-d0f37-deployment/amplify-cfn-templates/hosting/template.json",
+        "logicalId": "hostingS3AndCloudFront"
+      },
+      "lastPushTimeStamp": "2024-06-13T02:51:28.888Z",
+      "output": {
+        "CloudFrontSecureURL": "https://duu51bdkpw5qf.cloudfront.net",
+        "S3BucketSecureURL": "https://chachakimfront-20240605114133-hostingbucket-dev.s3.amazonaws.com",
+        "CloudFrontOriginAccessIdentity": "E3AIWWGTC9B3TB",
+        "WebsiteURL": "http://chachakimfront-20240605114133-hostingbucket-dev.s3-website.ap-northeast-2.amazonaws.com",
+        "CloudFrontDistributionID": "E3HN9LVOHGOMVH",
+        "Region": "ap-northeast-2",
+        "HostingBucketName": "chachakimfront-20240605114133-hostingbucket-dev",
+        "CloudFrontDomainName": "duu51bdkpw5qf.cloudfront.net"
+      },
+      "lastPushDirHash": "F6/lg56w+h4n8QpP/tfJ8QXxnQo="
+    }
+  }
+}

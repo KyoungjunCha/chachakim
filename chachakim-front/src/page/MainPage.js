@@ -11,12 +11,16 @@ const MainPage = () => {
     const list = [];
     for (let i = 0; i < board.length; i++) {
       const listItem = board[i];
-
       list.push(
         <div>
           <li
             onClick={() => {
-              navigate(`/vsPage/${i}`);
+              if(listName === "vs이름"){
+                navigate(`/vsPage/${i}`, {state : {id : i}});
+              }
+              else if(listName === "설문"){
+                navigate(`/surveyPage/${i}`, {state : {id : i}});
+              }
             }}
           >
             {listItem[listName]}

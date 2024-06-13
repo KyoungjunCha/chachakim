@@ -2,10 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 
-const Menu = (props) => {
+const Menu = props => {
   const navigate = useNavigate();
 
-  const onMenuClick = (id) => {
+  const onMenuClick = id => {
     if (id === "VS") {
       navigate("/vsPage");
     } else if (id === "설문") {
@@ -28,7 +28,7 @@ const Menu = (props) => {
             >
               {list[i]}
             </label>
-          </div>,
+          </div>
         );
       }
       return MenuList;
@@ -36,7 +36,7 @@ const Menu = (props) => {
     return (
       <div
         style={{
-          position: "absolute",
+          position: "fixed",
           border: "1px solid",
           padding: "50px 10px 10px 10px",
           top: "0px",
@@ -44,10 +44,12 @@ const Menu = (props) => {
           height: "100vh",
           boxSizing: "border-box",
           overflow: "hidden",
-          backgroundColor: "white",
+          backgroundColor: "white"
         }}
       >
-        <div>{addMenuButton()}</div>
+        <div>
+          {addMenuButton()}
+        </div>
       </div>
     );
   };

@@ -1,0 +1,6 @@
+{
+  "aws_project_region": "ap-northeast-2",
+  "aws_content_delivery_bucket": "chachakimfront-20240605114133-hostingbucket-dev",
+  "aws_content_delivery_bucket_region": "ap-northeast-2",
+  "aws_content_delivery_url": "https://duu51bdkpw5qf.cloudfront.net"
+}

@@ -1,5 +1,5 @@
 import React from "react";
 
-const mainFunc = () => {};
+const MainFunc = () => {};
 
-export default mainFunc;
+export default MainFunc;

@@ -3,7 +3,7 @@ import Menu from "../base/BaseMenu.js";
 import Header from "../base/BaseHeader.js";
 import { SURVEY_LIST } from "./ListDummy.js";
 
-const surveyPage = () => {
+const SurveyPage = () => {
   const list = SURVEY_LIST;
 
   const createList = (item) => {
@@ -182,4 +182,4 @@ const surveyPage = () => {
   );
 };
 
-export default surveyPage;
+export default SurveyPage;
