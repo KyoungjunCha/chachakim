@@ -10,7 +10,7 @@ const MyTakeVSPageTest = () => {
   useEffect(() => {
     console.log("useEffect called");
 
-    axios.delete(`${apiUrl}/20`)
+    axios.get(`${apiUrl}/notices/2`)
       .then((res) => {
         console.log("Response data:", res.data);
         setNotice(res.data);

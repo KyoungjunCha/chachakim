@@ -35,7 +35,7 @@ const NoticePageApi = () => {
           cursor: "pointer",
           bottom: "100px"
         }}
-        onClick={() => navigate(`/notice/${listItem.noticeId}`)}
+        onClick={() => navigate(`/notices/${listItem.noticeId}`)}
       >
         <div style={{
           width: "10vw",

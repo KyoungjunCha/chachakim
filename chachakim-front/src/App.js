@@ -63,7 +63,7 @@ const App = () => {
         {/* 05.11 공지사항 페이지 author:차경준 */}
         <Route path="/api/notices" element={<NOTICE_PAGE />} />
         {/* 05.13 공지사항 세부 페이지 author:차경준 */}
-        <Route path="/notices/:id" element={<NOTICE_DETAIL />} />
+        <Route path="/api/notices/:id" element={<NOTICE_DETAIL />} />
       </Routes>
     </BrowserRouter>
   );
