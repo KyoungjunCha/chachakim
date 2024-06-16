@@ -2,8 +2,7 @@
   "name": "front",
   "version": "0.1.0",
   "private": true,
-  "//proxy": "스프링부트와 리액트 연결을 위한 프록시 설정 - 관호 작성",
-  "proxy": "http://localhost:4000",
+
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
