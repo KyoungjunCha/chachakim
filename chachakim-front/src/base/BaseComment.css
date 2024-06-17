@@ -1,0 +1,70 @@
+.BaseComment-container {
+    position: relative;
+    width: 855px;
+    /* left: 30vw; */
+    /* 폭 조정 */
+    /* max-width: 600px; */
+
+    /* 최대 폭 설정 */
+    /* margin: 20px auto; */
+    /* 중앙 정렬 및 위 아래 마진 조정 */
+    /* padding: 20px; */
+    margin-top: auto;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+.BaseComment-container input[type="text"] {
+    width: 70%;
+    padding: 10px;
+    margin-right: 10px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.BaseComment-container button {
+    padding: 10px 20px;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.BaseComment-container button:hover {
+    background-color: #4cae4c;
+}
+
+.comment-item {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.comment-item h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.comment-item p {
+    color: #666;
+}
+
+.comment-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #999;
+    margin-top: 10px;
+}
+
+.comment-meta span {
+    margin-right: 10px;
+}

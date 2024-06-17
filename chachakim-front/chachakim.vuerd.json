@@ -3,8 +3,8 @@
     "version": "2.2.13",
     "width": 2000,
     "height": 2000,
-    "scrollTop": -224.8752708333332,
-    "scrollLeft": -123.44980162326547,
+    "scrollTop": 0,
+    "scrollLeft": -78.921875,
     "zoomLevel": 0.8,
     "show": {
       "tableComment": true,
@@ -280,9 +280,9 @@
         ],
         "ui": {
           "active": false,
-          "left": 55,
-          "top": 564,
-          "zIndex": 150,
+          "left": 1537.8573,
+          "top": 474.1787,
+          "zIndex": 183,
           "widthName": 60,
           "widthComment": 84.5703125,
           "color": "#FFEB3B"
@@ -456,32 +456,9 @@
             }
           },
           {
-            "id": "c6fd0a13-04f0-4742-a096-15d4b96fea57",
-            "name": "true",
-            "comment": "우파",
-            "dataType": "INT",
-            "default": "0",
-            "option": {
-              "autoIncrement": false,
-              "primaryKey": false,
-              "unique": false,
-              "notNull": true
-            },
-            "ui": {
-              "active": false,
-              "pk": false,
-              "fk": false,
-              "pfk": false,
-              "widthName": 60,
-              "widthComment": 60,
-              "widthDataType": 60,
-              "widthDefault": 60
-            }
-          },
-          {
             "id": "4b8a625a-33be-442a-bbee-ce5986645007",
-            "name": "false",
-            "comment": "좌파",
+            "name": "choose",
+            "comment": "좌파 1, 우파 2",
             "dataType": "INT",
             "default": "0",
             "option": {
@@ -496,7 +473,7 @@
               "fk": false,
               "pfk": false,
               "widthName": 60,
-              "widthComment": 60,
+              "widthComment": 84.875,
               "widthDataType": 60,
               "widthDefault": 60
             }
@@ -504,9 +481,9 @@
         ],
         "ui": {
           "active": false,
-          "left": 670.25,
-          "top": 247.5,
-          "zIndex": 112,
+          "left": 120,
+          "top": 991.25,
+          "zIndex": 191,
           "widthName": 60,
           "widthComment": 60.6904296875,
           "color": "#2196F3"
@@ -590,9 +567,9 @@
         ],
         "ui": {
           "active": false,
-          "left": 1292.5,
-          "top": 166.5,
-          "zIndex": 99,
+          "left": 1011.9643,
+          "top": 29.1785,
+          "zIndex": 202,
           "widthName": 60,
           "widthComment": 120,
           "color": "#2196F3"
@@ -676,9 +653,9 @@
         ],
         "ui": {
           "active": false,
-          "left": 58.25,
-          "top": 166,
-          "zIndex": 89,
+          "left": 1441.6432,
+          "top": 211.25,
+          "zIndex": 184,
           "widthName": 60,
           "widthComment": 84.5703125,
           "color": "#4CAF50"
@@ -808,9 +785,9 @@
         ],
         "ui": {
           "active": false,
-          "left": 657.75,
-          "top": 567.5,
-          "zIndex": 107,
+          "left": 1495.47607421875,
+          "top": 1097.143,
+          "zIndex": 198,
           "widthName": 60,
           "widthComment": 71.5703125,
           "color": "#4CAF50"
@@ -1009,9 +986,9 @@
         ],
         "ui": {
           "active": false,
-          "left": 666.3475,
-          "top": 0,
-          "zIndex": 103,
+          "left": 287.5975,
+          "top": 6.25,
+          "zIndex": 112,
           "widthName": 60,
           "widthComment": 60,
           "color": "#2196F3"
@@ -1141,9 +1118,9 @@
         ],
         "ui": {
           "active": false,
-          "left": 1293.75,
-          "top": 374.9026,
-          "zIndex": 3,
+          "left": 338.6331,
+          "top": 1419.7239,
+          "zIndex": 201,
           "widthName": 60,
           "widthComment": 60,
           "color": "#E91E63"
@@ -1250,12 +1227,182 @@
         ],
         "ui": {
           "active": false,
-          "left": 1295.2695,
-          "top": 576.9026,
-          "zIndex": 4,
+          "left": 878.3054,
+          "top": 1424.4024,
+          "zIndex": 197,
           "widthName": 60,
           "widthComment": 60,
           "color": "#E91E63"
+        },
+        "visible": true
+      },
+      {
+        "id": "e79c4e87-9d75-4117-b572-d66bc6e1200d",
+        "name": "takevs",
+        "comment": "참여한 VS 테이블",
+        "columns": [
+          {
+            "id": "92aa9cef-b1d7-440c-b5a2-34e616497196",
+            "name": "",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            }
+          },
+          {
+            "id": "022c5d5d-efca-4a3e-bb8f-ae308763e691",
+            "name": "vs_id",
+            "comment": "vs 아이디",
+            "dataType": "INT",
+            "default": "AUTO_INCREMENT",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 113.29345703125
+            }
+          },
+          {
+            "id": "6cda3e58-0369-4215-83d3-ae267aec8aa1",
+            "name": "id",
+            "comment": "사용자 아이디",
+            "dataType": "VARCHAR(100)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 84.5703125,
+              "widthDataType": 89.29296875,
+              "widthDefault": 60
+            }
+          },
+          {
+            "id": "59887489-fca0-4f22-8866-1a4cf348d470",
+            "name": "vschoose",
+            "comment": "좌파 1, 우파 2",
+            "dataType": "INT",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 84.875,
+              "widthDataType": 60,
+              "widthDefault": 60
+            }
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 12.7402,
+          "top": 490.411,
+          "zIndex": 193,
+          "widthName": 60,
+          "widthComment": 104.2607421875
+        },
+        "visible": true
+      },
+      {
+        "id": "6b60b80a-7aec-404c-ae7a-2b17e5ef8a32",
+        "name": "takesurvey",
+        "comment": "참여한 설문조사",
+        "columns": [
+          {
+            "id": "8c32d354-1d56-4b54-b0c0-d149e84b21f5",
+            "name": "id",
+            "comment": "사용자 아이디",
+            "dataType": "VARCHAR(100)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 84.5703125,
+              "widthDataType": 89.29296875,
+              "widthDefault": 60
+            }
+          },
+          {
+            "id": "d1c7b8fc-11d1-463d-845f-df0b32ed2183",
+            "name": "survey_id",
+            "comment": "survey 아이디",
+            "dataType": "INT",
+            "default": "AUTO_INCREMENT",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 83.4912109375,
+              "widthDataType": 60,
+              "widthDefault": 113.29345703125
+            }
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 0,
+          "top": 325.5179,
+          "zIndex": 192,
+          "widthName": 64.41650390625,
+          "widthComment": 97.5703125
         },
         "visible": true
       }
@@ -1277,18 +1424,18 @@
           "columnIds": [
             "36b4cc1f-74d9-448e-924d-715207072bfc"
           ],
-          "x": 910.5498046875,
-          "y": 501,
-          "direction": "bottom"
+          "x": 600.599609375,
+          "y": 1185.4166666666667,
+          "direction": "right"
         },
         "end": {
           "tableId": "d221434e-2075-4e3e-a0d8-dc79da34968b",
           "columnIds": [
             "fa033e1a-8136-44b3-bd21-07d72ce28889"
           ],
-          "x": 910.011962890625,
-          "y": 567.5,
-          "direction": "top"
+          "x": 1495.47607421875,
+          "y": 1182.893,
+          "direction": "left"
         },
         "constraintName": "fk_vs_to_comment",
         "visible": true
@@ -1303,8 +1450,8 @@
           "columnIds": [
             "36b4cc1f-74d9-448e-924d-715207072bfc"
           ],
-          "x": 1150.849609375,
-          "y": 374.25,
+          "x": 600.599609375,
+          "y": 1030.0833333333333,
           "direction": "right"
         },
         "end": {
@@ -1312,8 +1459,8 @@
           "columnIds": [
             "4146e3d7-979e-4cbd-9afa-529f63400f59"
           ],
-          "x": 1292.5,
-          "y": 264.375,
+          "x": 1011.9643,
+          "y": 127.0535,
           "direction": "left"
         },
         "constraintName": "fk_vs_to_image",
@@ -1329,18 +1476,18 @@
           "columnIds": [
             "36b4cc1f-74d9-448e-924d-715207072bfc"
           ],
-          "x": 670.25,
-          "y": 374.25,
-          "direction": "left"
+          "x": 600.599609375,
+          "y": 1107.75,
+          "direction": "right"
         },
         "end": {
           "tableId": "e7e5de29-5aa7-4b73-8f00-47b138148543",
           "columnIds": [
             "bb26f712-894a-441a-96a3-daa4fcba5ffe"
           ],
-          "x": 512.40673828125,
-          "y": 263.875,
-          "direction": "right"
+          "x": 1441.6432,
+          "y": 309.125,
+          "direction": "left"
         },
         "constraintName": "fk_vs_to_favorite",
         "visible": true
@@ -1355,18 +1502,18 @@
           "columnIds": [
             "8cdb6af7-5606-4067-b806-92633e25705b"
           ],
-          "x": 666.3475,
-          "y": 116.5,
-          "direction": "left"
+          "x": 768.1971093750001,
+          "y": 181,
+          "direction": "right"
         },
         "end": {
           "tableId": "e7e5de29-5aa7-4b73-8f00-47b138148543",
           "columnIds": [
             "2142c1e8-cf66-4284-be11-8dfe67a75d65"
           ],
-          "x": 512.40673828125,
-          "y": 198.625,
-          "direction": "right"
+          "x": 1441.6432,
+          "y": 243.875,
+          "direction": "left"
         },
         "constraintName": "fk_survey_to_favorite",
         "visible": true
@@ -1381,8 +1528,8 @@
           "columnIds": [
             "8cdb6af7-5606-4067-b806-92633e25705b"
           ],
-          "x": 1146.9471093749999,
-          "y": 116.5,
+          "x": 768.1971093750001,
+          "y": 64.5,
           "direction": "right"
         },
         "end": {
@@ -1390,8 +1537,8 @@
           "columnIds": [
             "e3d6f58f-1ab2-49fc-9bb9-1b8cb48b36ec"
           ],
-          "x": 1292.5,
-          "y": 199.125,
+          "x": 1011.9643,
+          "y": 61.8035,
           "direction": "left"
         },
         "constraintName": "fk_survey_to_image",
@@ -1407,18 +1554,18 @@
           "columnIds": [
             "841a8943-e091-4bfa-bbec-7d13258f10c2"
           ],
-          "x": 516.294921875,
-          "y": 701,
-          "direction": "right"
+          "x": 1768.5047609375,
+          "y": 748.1786999999999,
+          "direction": "bottom"
         },
         "end": {
           "tableId": "d221434e-2075-4e3e-a0d8-dc79da34968b",
           "columnIds": [
             "519615eb-8bd9-4cde-a3fe-a82ff65de8fd"
           ],
-          "x": 657.75,
-          "y": 653.25,
-          "direction": "left"
+          "x": 1747.738037109375,
+          "y": 1097.143,
+          "direction": "top"
         },
         "constraintName": "fk_user_to_comment",
         "visible": true
@@ -1433,8 +1580,8 @@
           "columnIds": [
             "841a8943-e091-4bfa-bbec-7d13258f10c2"
           ],
-          "x": 285.6474609375,
-          "y": 564,
+          "x": 1768.5047609375,
+          "y": 474.1787,
           "direction": "top"
         },
         "end": {
@@ -1442,11 +1589,115 @@
           "columnIds": [
             "c23613e9-0c70-43a6-b0dd-24ef3b1376f0"
           ],
-          "x": 285.328369140625,
-          "y": 296.5,
+          "x": 1668.721569140625,
+          "y": 341.75,
           "direction": "bottom"
         },
         "constraintName": "fk_user_to_favorite",
+        "visible": true
+      },
+      {
+        "id": "407fbe8b-4462-407b-8ddc-4761bc0e3348",
+        "identification": false,
+        "relationshipType": "ZeroN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "6dcebad6-a3c3-4480-b9f4-6e5d2530e079",
+          "columnIds": [
+            "841a8943-e091-4bfa-bbec-7d13258f10c2"
+          ],
+          "x": 1537.8573,
+          "y": 679.6786999999999,
+          "direction": "left"
+        },
+        "end": {
+          "tableId": "e79c4e87-9d75-4117-b572-d66bc6e1200d",
+          "columnIds": [
+            "6cda3e58-0369-4215-83d3-ae267aec8aa1"
+          ],
+          "x": 467.20162578125,
+          "y": 565.9110000000001,
+          "direction": "right"
+        },
+        "constraintName": "fk_user_to_take",
+        "visible": true
+      },
+      {
+        "id": "59d2bda9-38f9-4538-b18f-203c23e219d5",
+        "identification": false,
+        "relationshipType": "ZeroN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "6dcebad6-a3c3-4480-b9f4-6e5d2530e079",
+          "columnIds": [
+            "841a8943-e091-4bfa-bbec-7d13258f10c2"
+          ],
+          "x": 1537.8573,
+          "y": 542.6786999999999,
+          "direction": "left"
+        },
+        "end": {
+          "tableId": "6b60b80a-7aec-404c-ae7a-2b17e5ef8a32",
+          "columnIds": [
+            "8c32d354-1d56-4b54-b0c0-d149e84b21f5"
+          ],
+          "x": 454.15673828125,
+          "y": 408.0179,
+          "direction": "right"
+        },
+        "constraintName": "fk_user_to_takesurvey",
+        "visible": true
+      },
+      {
+        "id": "a305e0dd-8055-4466-9dcc-41700b110a9e",
+        "identification": false,
+        "relationshipType": "ZeroN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "2cbf5e18-fc32-4bc3-b350-84f9e467b647",
+          "columnIds": [
+            "36b4cc1f-74d9-448e-924d-715207072bfc"
+          ],
+          "x": 360.2998046875,
+          "y": 991.25,
+          "direction": "top"
+        },
+        "end": {
+          "tableId": "e79c4e87-9d75-4117-b572-d66bc6e1200d",
+          "columnIds": [
+            "022c5d5d-efca-4a3e-bb8f-ae308763e691"
+          ],
+          "x": 239.970912890625,
+          "y": 641.4110000000001,
+          "direction": "bottom"
+        },
+        "constraintName": "fk_vs_to_takevs",
+        "visible": true
+      },
+      {
+        "id": "b6f4f6f0-7f14-4bc5-8694-0152cdc570fc",
+        "identification": false,
+        "relationshipType": "ZeroN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "04aad1fc-b260-4952-8c8d-2ed495683d63",
+          "columnIds": [
+            "8cdb6af7-5606-4067-b806-92633e25705b"
+          ],
+          "x": 527.8973046875001,
+          "y": 239.25,
+          "direction": "bottom"
+        },
+        "end": {
+          "tableId": "6b60b80a-7aec-404c-ae7a-2b17e5ef8a32",
+          "columnIds": [
+            "d1c7b8fc-11d1-463d-845f-df0b32ed2183"
+          ],
+          "x": 454.15673828125,
+          "y": 353.0179,
+          "direction": "right"
+        },
+        "constraintName": "fk_survey_to_takesurvey",
         "visible": true
       }
     ]

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chachakim.chakimcha.event.mapper.EventMapper">
+      
+  <select id = "view" resultType = "com.chachakim.chakimcha.event.vo.EventVO">
+    select event_id, title, write_datetime, content, view_count
+    from event
+    where event_id in (#{event_id})
+  </select>
+
+</mapper>

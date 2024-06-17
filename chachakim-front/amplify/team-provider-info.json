@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-chachakimfront-dev-d0f37-authRole",
+      "UnauthRoleArn": "arn:aws:iam::767397731848:role/amplify-chachakimfront-dev-d0f37-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::767397731848:role/amplify-chachakimfront-dev-d0f37-authRole",
+      "Region": "ap-northeast-2",
+      "DeploymentBucketName": "amplify-chachakimfront-dev-d0f37-deployment",
+      "UnauthRoleName": "amplify-chachakimfront-dev-d0f37-unauthRole",
+      "StackName": "amplify-chachakimfront-dev-d0f37",
+      "StackId": "arn:aws:cloudformation:ap-northeast-2:767397731848:stack/amplify-chachakimfront-dev-d0f37/c1627330-22e3-11ef-9583-06414a6290b5",
+      "AmplifyAppId": "d33evmuo7ydps4"
+    },
+    "categories": {
+      "hosting": {
+        "S3AndCloudFront": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,3 @@
+INSERT INTO survey (title, write_datetime, comment_count, view_count, content, endDate, favorite_count, surveylist) VALUES
+('Survey Title 1', '2024-01-01 10:00:00', 0, 0, 'Survey Content 1입니다. 어쩌구', '2024-06-01', 0, '[{"question": "Q1?", "options": ["A", "B", "C"]}]'),
+('Survey Title 2', '2024-01-02 11:00:00', 0, 0, 'Survey Content 2입니다. 저쩌구', '2024-06-02', 0, '[{"question": "Q2?", "options": ["X", "Y", "Z"]}]');
