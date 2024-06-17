@@ -3,7 +3,6 @@ package com.chachakim.chakimcha.user.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,14 +23,14 @@ public class UserController {
 
     @GetMapping("/list")
     public String list(){
-        System.out.println("공지사항 리스트입니다.");
+        System.out.println("유저 리스트입니다.");
         return "home";
     }
     
  // return "redirect:/base/hello.html";
     @GetMapping("/view")
     public UserVO view(){
-        System.out.println("공지사항 각 항목별 상세보기입니다.");
+        System.out.println("유저 각 항목별 상세보기입니다.");
        UserVO vo = service.view(1);
         System.out.println("여긴 실행되냐?");
        if(vo != null){
@@ -42,19 +41,19 @@ public class UserController {
 
     @GetMapping("/write")
     public String write(){
-        System.out.println("공지사항 등록하기 입니다.");
+        System.out.println("유저 등록하기 입니다.");
         return null;
     }
 
     @GetMapping("/update")
     public String update(){
-        System.out.println("공지사항 수정하기 입니다.");
+        System.out.println("유저 수정하기 입니다.");
         return null;
     }
 
     @GetMapping("/delete")
     public String delete(){
-        System.out.println("공지사항 글 삭제하기 입니다.");
+        System.out.println("유저 글 삭제하기 입니다.");
         return null;
     }
 }

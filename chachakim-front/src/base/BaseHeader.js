@@ -31,6 +31,7 @@ const Header = () => {
         <label className="BaseHeader-username">name</label>
         <label className="BaseHeader-signup" onClick={() => { navigate("/LoginPage");}} >Login</label> {/* 관호 작성  */}
         <label className="BaseHeader-login" onClick={() => { navigate("/SignupPage");}} >SignUp</label> {/* 관호 작성  */}
+        <label className="BaseHeader-login" onClick={() => { navigate("/MyTakeVSPageTest");}} >MyTakeVSPageTest</label> {/* 관호 작성  */}
       </div>
     );
   };

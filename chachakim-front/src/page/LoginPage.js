@@ -1,16 +1,12 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import Header from "../base/BaseHeader.js";
 import Menu from "../base/BaseMenu.js";
-
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({
     username: '',
     password: ''
   });
-
-  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,19 +19,6 @@ const LoginPage = () => {
     // 여기에 로그인 검증 로직을 추가하면 됩니다.
   };
 
-  const handleFindId = () => {
-    navigate("/FindIdPage");
-  };
-
-  const handleFindPw = () => {
-    navigate("/FindPwPage");
-  };
-
-  const handleLogin = () => {
-    navigate("/main");
-  };
-  
-  
   return (
     <>
       <Menu />
@@ -66,9 +49,9 @@ const LoginPage = () => {
             />
           </div>
          
-            <button type="button" onClick={handleLogin} style={{ margin: '10px', padding: '10px 20px',width: "90%" }}>로그인</button> 
-            <button type="button" onClick={handleFindId} style={{ margin: '10px', padding: '10px 20px',width: "90%" }}>아이디 찾기</button>  
-            <button type="button" onClick={handleFindPw} style={{ margin: '10px', padding: '10px 20px',width: "90%" }}>비밀번호 찾기</button>
+            <button type="button" style={{ margin: '10px', padding: '10px 20px',width: "90%" }}>로그인</button> 
+            <button type="button" style={{ margin: '10px', padding: '10px 20px',width: "90%" }}>아이디 찾기</button>  
+            <button type="button" style={{ margin: '10px', padding: '10px 20px',width: "90%" }}>비밀번호 찾기</button>
             
            
          

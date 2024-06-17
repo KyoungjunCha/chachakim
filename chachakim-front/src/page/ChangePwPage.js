@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import Header from "../base/BaseHeader.js";
 import Menu from "../base/BaseMenu.js";
 
@@ -8,7 +7,6 @@ const ChangePwPage = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [presentPassword, setPresentPassword] = useState('');
 
-  const navigate = useNavigate();
 
   const handlePresentPasswordChange = (e) => {
     setPresentPassword(e.target.value);
@@ -28,7 +26,7 @@ const ChangePwPage = () => {
       alert("비밀번호가 일치하지 않습니다. 다시 입력해 주세요.");
     } else {
       alert("비밀번호가 성공적으로 변경되었습니다.");
-      navigate("/main");
+      // 비밀번호 변경 로직을 추가할 곳
     }
   };
 

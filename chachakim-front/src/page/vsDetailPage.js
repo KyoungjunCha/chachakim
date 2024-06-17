@@ -15,6 +15,12 @@ const VsDetailPage = () => {
   const [frontPersent, setFrontPersent] = React.useState();
   const [backPersent, setBackPersent] = React.useState();
 
+  const changeWidth = (e, place, width) => {
+    if ((place = "front")) {
+      setFrontPersent(e.target.value);
+    }
+  };
+
   const renderBody = () => {
     return (
       <div
