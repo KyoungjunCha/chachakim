@@ -103,7 +103,42 @@ const VS_LIST = [
     },
   ];
 
+  //  관호 작성 (07.03) 령현이 파일 합쳤는데, 에러나서 만들어줌
+  const COMMENT_LIST = [
+    {
+      comment_id: 1,
+      nickname: "사용자1",
+      content: "첫 번째 댓글입니다.",
+      agree: 10,
+      disagree: 1,
+      comment_date: "2024-07-01",
+      user_id: 1
+    },
+    {
+      comment_id: 2,
+      nickname: "사용자2",
+      content: "두 번째 댓글입니다.",
+      agree: 5,
+      disagree: 2,
+      comment_date: "2024-07-02",
+      user_id: 2
+    }
+  ];
 
-
-  export { VS_LIST, SURVEY_LIST, MY_TAKE_VS_LIST ,MY_TAKE_SURVEY_LIST };
+  //  관호 작성 (07.03) 령현이 파일 합쳤는데, 에러나서 만들어줌
+  const NOTICE_LIST = [
+    {
+      title: "공지사항 1",
+      author: "관리자",
+      date: "2024.07.01",
+      views: 100
+    },
+    {
+      title: "공지사항 2",
+      author: "관리자",
+      date: "2024.07.02",
+      views: 200
+    }
+  ];
   
+  export { BOARD_NAME, VS_LIST, SURVEY_LIST, MY_TAKE_VS_LIST, MY_TAKE_SURVEY_LIST, COMMENT_LIST, NOTICE_LIST };

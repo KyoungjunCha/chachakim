@@ -1,21 +1,17 @@
 import React from "react";
 import Menu from "../base/BaseMenu.js";
 import Header from "../base/BaseHeader.js";
-<<<<<<< HEAD
 import {Navigate, useLocation} from "react-router-dom"
 import { useNavigate } from "react-router-dom";
-import {BOARD_NAME} from "./ListDummy.js"
-=======
-import {useLocation} from "react-router-dom"
->>>>>>> gwanho
+import { BOARD_NAME } from "./ListDummy.js";
+
 
 
 const CreateListPage = () => {
 
     const location = useLocation();
     const page_name = location.state.pageName;
-<<<<<<< HEAD
-    const [pageTitle, setPageTitle] = React.useState({vsPage : "VS", SurveyPage : "설문", NoticePage : "공지사항", EventPage : "Event"})
+    const [pageTitle, setPageTitle] = React.useState({vsPage : "VS ", SurveyPage : "설문 ", NoticePage : "공지사항 ", EventPage : "Event "})
     const [listCount, setListCount] = React.useState(3)
     const navigate = useNavigate();
 
@@ -43,19 +39,10 @@ const CreateListPage = () => {
                         <button style={{border : "1px solid", borderRadius : ".5rem"}}
                             onClick={()=>{navigate(`/${page_name}`)}}>취소</button>
                     </div>
-=======
-    console.log(page_name)
-    const renderBody = () => {
-        return(
-            <div>
-                <div>
-                    <label>inside</label>
->>>>>>> gwanho
                 </div>
             </div>
         )
     }
-<<<<<<< HEAD
 
     const renderVsCreate = () => {
         return(
@@ -138,7 +125,7 @@ const CreateListPage = () => {
                 </div>
                 <div style={{display : "flex", height : "200px"}}>
                     <div style={{width : "200px", border : "1px solid", textAlign : "center", boxSizing : "border-box", height : "200px", lineHeight : "200px"}}>
-                        <label>설명</label>
+                        <label>내용</label>
                     </div>
                     <textarea  style={{border : "1px solid", boxSizing : "border-box", height : "200px", paddingTop : "7px", padding : "6px 5px", outline : "none", width : "1000px", fontSize : "18px", resize : "none"}}></textarea>
                 </div>
@@ -170,8 +157,6 @@ const CreateListPage = () => {
 
 
 
-=======
->>>>>>> gwanho
     return (
     <div>
         {renderBody()}    

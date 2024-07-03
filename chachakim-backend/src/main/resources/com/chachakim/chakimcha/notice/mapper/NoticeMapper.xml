@@ -17,7 +17,7 @@
 
   <insert id = "insertNotice">
       INSERT INTO notice (title, write_datetime, content)
-      VALUES (#{title}, DATE_FORMAT(DATE_ADD(NOW(), INTERVAL -FLOOR(RAND() * 100) DAY), '%Y-%m-%d %H:%i:%s'), #{content})
+      VALUES (#{title}, NOW(), #{content})
   </insert>
 
   <update id="updateNotice">

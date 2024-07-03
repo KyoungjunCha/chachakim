@@ -21,21 +21,21 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 //@Controller // @Controller: 모델과 뷰를 조작하는 데 사용되는 컨트롤러임을 나타냄
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/notices")
 public class NoticeController {
 
     @Autowired // 해당 타입의 빈(bean)을 자동으로 주입하라고 지시함
     @Qualifier("noticeServiceImpl") // NoticeService 중에서도 NoticeServiceImpl라는 이름을 가진 놈으로 주입하셈
     private NoticeService service;
 
-    @GetMapping("/notices") // 공지사항 리스트 보여주기
+    @GetMapping // 공지사항 리스트 보여주기
     public List<NoticeVO> getNoticeList() {
         System.out.println("NoticeController의 getNoticeList 메서드 입니다.");
         System.out.println(service.getNoticeList());
         return service.getNoticeList();
     }
 
-    @GetMapping("/notices/{notice_Id}") // 공지사항 클릭 시 각 항목별 상세 보기
+    @GetMapping("/{notice_Id}") // 공지사항 클릭 시 각 항목별 상세 보기
     public NoticeVO getNoticeById(@PathVariable int notice_Id) {
         System.out.println("NoticeController의 getNoticeById 메서드 입니다.");
         int result = service.increaseview(notice_Id); // 클릭 한 공지사항 조회수 1 증가
@@ -46,6 +46,7 @@ public class NoticeController {
     @PostMapping // 공지사항 글 등록하기
     public void insertNotice(@RequestBody NoticeVO vo) { 
         System.out.println("NoticeController의 insertNotice 메서드 입니다.");
+        System.out.println(vo);
         service.insertNotice(vo);
     }
 

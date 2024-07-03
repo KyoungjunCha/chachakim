@@ -1,0 +1,77 @@
+.notice-create-page {
+
+    font-family: Arial, sans-serif;
+}
+
+.create-notice-container {
+    max-width: 1000px; /* 크기를 키움 */
+    margin-left: 700px; /* 왼쪽 마진을 줌 */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-section {
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.form-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.form-label {
+    width: 200px; /* 크기를 키움 */
+    text-align: right;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.form-input {
+    flex: 1;
+    padding: 10px; /* 기본 입력 크기 */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-input.textarea {
+    height: 200px; /* 텍스트 영역의 크기 */
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.save-button, .cancel-button {
+    padding: 15px 30px; /* 크기를 키움 */
+    margin: 0 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    font-size: 18px; /* 크기를 키움 */
+    transition: background-color 0.3s;
+}
+
+.cancel-button {
+    background-color: #dc3545;
+}
+
+.save-button:hover {
+    background-color: #0056b3;
+}
+
+.cancel-button:hover {
+    background-color: #c82333;
+}
