@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import Header from "../base/BaseHeader.js";
 import Menu from "../base/BaseMenu.js";
 
@@ -15,8 +16,18 @@ const LoginPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData); // 폼 데이터를 콘솔에 출력
-    // 여기에 로그인 검증 로직을 추가하면 됩니다.
+    axios.post("http://localhost:4000/user/write", {
+      id: formData.username,
+      password: formData.password,
+      // 필요한 다른 필드들을 추가하세요
+    })
+      .then(response => {
+        console.log(response.data); // 서버 응답을 콘솔에 출력
+        // 로그인 성공 시 필요한 로직 추가
+      })
+      .catch(error => {
+        console.error("There was an error!", error);
+      });
   };
 
   return (
@@ -25,7 +36,7 @@ const LoginPage = () => {
       <Header />
       <div style={{ display: "flex", justifyContent: "center", padding: "20px", marginLeft: "550px" }}>
         <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", width: "100%" }}>
-          <h2 style = {{marginLeft: "100px"}}>로그인</h2>
+          <h2 style={{ marginLeft: "100px" }}>로그인</h2>
           <div style={{ marginBottom: '10px', display: 'flex', alignItems: 'center' }}>
             <label style={{ width: '90px', marginRight: '10px' }}>아이디:</label>
             <input
@@ -48,13 +59,9 @@ const LoginPage = () => {
               required
             />
           </div>
-         
-            <button type="button" style={{ margin: '10px', padding: '10px 20px',width: "90%" }}>로그인</button> 
-            <button type="button" style={{ margin: '10px', padding: '10px 20px',width: "90%" }}>아이디 찾기</button>  
-            <button type="button" style={{ margin: '10px', padding: '10px 20px',width: "90%" }}>비밀번호 찾기</button>
-            
-           
-         
+          <button type="submit" style={{ margin: '10px', padding: '10px 20px', width: "90%" }}>로그인</button>
+          <button type="button" style={{ margin: '10px', padding: '10px 20px', width: "90%" }}>아이디 찾기</button>
+          <button type="button" style={{ margin: '10px', padding: '10px 20px', width: "90%" }}>비밀번호 찾기</button>
         </form>
       </div>
     </>

@@ -11,6 +11,7 @@ import com.chachakim.chakimcha.user.vo.UserVO;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 
 //@Controller // @Controller: 모델과 뷰를 조작하는 데 사용되는 컨트롤러임을 나타냄
@@ -41,9 +42,10 @@ public class UserController {
     }
 
     @PostMapping("/write")
-    public String write(){
+    public String write(@RequestBody UserVO vo){
         
         System.out.println("유저 등록하기 입니다.");
+        System.out.println(vo);
         return null;
     }
 

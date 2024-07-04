@@ -6,6 +6,7 @@ import lombok.Data;
 public class UserVO {
 
     private String id; // 유저 아이디
+    private String password; // 유저 비밀번호
     private String email; // 유저 이메일
     private String nickname; // 유저 닉네임
     private String tel_number; // 유저 전화번호
