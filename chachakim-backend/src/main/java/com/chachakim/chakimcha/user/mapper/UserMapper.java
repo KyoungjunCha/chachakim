@@ -1,8 +1,10 @@
 package com.chachakim.chakimcha.user.mapper;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
+// import org.hibernate.mapping.Map;
 import org.springframework.stereotype.Repository;
 
 import com.chachakim.chakimcha.user.vo.UserVO;
@@ -15,5 +17,8 @@ public interface UserMapper {
 
     // 공지사항 클릭 시 각 항목별 상세 보기
      public UserVO view(int user_Id);
+
+     public UserVO login(Map<String,String>params);
+
 
 }

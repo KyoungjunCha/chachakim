@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import axios from "axios";
 import Header from "../base/BaseHeader.js";
 import Menu from "../base/BaseMenu.js";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({
-    username: '',
+    id: '',
     password: ''
   });
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -16,18 +19,25 @@ const LoginPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post("http://localhost:4000/user/write", {
-      id: formData.username,
+
+    console.log("로그인 요청 데이터:", formData);
+
+    axios.post("http://localhost:4000/user/login", {
+      id: formData.id,
       password: formData.password,
       // 필요한 다른 필드들을 추가하세요
     })
-      .then(response => {
-        console.log(response.data); // 서버 응답을 콘솔에 출력
-        // 로그인 성공 시 필요한 로직 추가
-      })
-      .catch(error => {
-        console.error("There was an error!", error);
-      });
+    .then(response => {
+      console.log("서버 응답:", response.data); // 서버 응답을 콘솔에 출력
+      if (response.data) {
+        navigate("/home");
+      } else {
+        alert("로그인 실패");
+      }
+    })
+    .catch(error => {
+      console.error("There was an error!", error);
+    });
   };
 
   return (
@@ -41,9 +51,9 @@ const LoginPage = () => {
             <label style={{ width: '90px', marginRight: '10px' }}>아이디:</label>
             <input
               type="text"
-              name="username"
+              name="id"
               placeholder="아이디"
-              value={formData.username}
+              value={formData.id}
               onChange={handleChange}
               required
             />

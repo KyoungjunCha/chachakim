@@ -1,6 +1,8 @@
 package com.chachakim.chakimcha.user.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,6 +25,14 @@ public class UserServiceImpl implements UserService  {
     public UserVO view(int user_Id){
         System.out.println("UserServiceImpl.view() 실행중입니다. 즉 서비스까진 넘어온거임");
         return mapper.view(user_Id);
+    }
+
+    @Override // 유저 로그인
+    public UserVO login(String id, String password){
+        Map <String, String> params = new HashMap<>();
+        params.put("id",id);
+        params.put("password",password);
+        return mapper.login(params);
     }
 
 /*

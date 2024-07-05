@@ -12,6 +12,9 @@ public interface UserService {
     // 유저 클릭 시 각 항목별 상세 보기
     public UserVO view(int user_Id);
 
+
+    // 유저 로그인
+    public UserVO login(String id, String password);
     /* 
     // 유저 글 등록하기
     public int write(UserVO vo);

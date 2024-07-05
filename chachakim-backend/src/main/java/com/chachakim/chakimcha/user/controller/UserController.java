@@ -49,6 +49,20 @@ public class UserController {
         return null;
     }
 
+    @PostMapping("/login")
+    public UserVO login(@RequestBody UserVO vo) {
+        System.out.println("로그인 요청 데이터: ");
+        System.out.println(vo);
+        UserVO user = service.login(vo.getId(), vo.getPassword());
+        if (user != null) {
+            System.out.println("로그인 성공: " + user);
+        } else {
+            System.out.println("로그인 실패");
+        }
+        return user;
+    }
+    
+
     @GetMapping("/update")
     public String update(){
         System.out.println("유저 수정하기 입니다.");
