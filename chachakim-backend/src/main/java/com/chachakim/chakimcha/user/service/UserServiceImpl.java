@@ -1,8 +1,14 @@
 package com.chachakim.chakimcha.user.service;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.chachakim.chakimcha.user.mapper.UserMapper;
@@ -17,13 +23,30 @@ public class UserServiceImpl implements UserService  {
     @Override  // 유저 리스트 보여주기
     public List<UserVO> list(){
         return null;
-    }
+    } // end of list
 
     @Override // 유저 클릭 시 각 항목별 상세 보기
     public UserVO view(int user_Id){
         System.out.println("UserServiceImpl.view() 실행중입니다. 즉 서비스까진 넘어온거임");
         return mapper.view(user_Id);
-    }
+    } // end of view
+
+    @Override
+    public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException { // 메서드 이름 바꾸고 싶은데 오버라이딩이라 그냥 둠
+        UserVO userVO = mapper.findUserById(id);
+
+        if (userVO == null) {
+            throw new UsernameNotFoundException("User not found");
+        }
+
+        String role = mapper.findRolesById(userVO.getId());
+        List<GrantedAuthority> authorities = Collections.singletonList(new SimpleGrantedAuthority(role));
+
+        
+        return new User(userVO.getId(), userVO.getPassword(),true,
+                true, true,true, authorities);
+
+    } // end of loadUserByUsername
 
 /*
 

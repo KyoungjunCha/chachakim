@@ -10,6 +10,13 @@ import com.chachakim.chakimcha.user.vo.UserVO;
 @Mapper
 @Repository
 public interface UserMapper {
+
+    //  로그인 시 입력 아이디로 정보 가져오기
+    public UserVO findUserById(String id);
+
+    // 로그인 시 입력된 아이디로 권한등급 가져오기
+    public String findRolesById(String id);
+
      // 공지사항 리스트 보여주기
     public List<UserVO> list();
 

@@ -46,6 +46,7 @@ public class NoticeController {
     @PostMapping // 공지사항 글 등록하기
     public void insertNotice(@RequestBody NoticeVO vo) { 
         System.out.println("NoticeController의 insertNotice 메서드 입니다.");
+        System.out.println("들어가는 값 : " + vo);
         System.out.println(vo);
         service.insertNotice(vo);
     }
