@@ -16,7 +16,7 @@ const LoginPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post("http://localhost:4000/user/write", {
+    axios.post("http://localhost:4000/user/login", {
       id: formData.username,
       password: formData.password,
       // 필요한 다른 필드들을 추가하세요

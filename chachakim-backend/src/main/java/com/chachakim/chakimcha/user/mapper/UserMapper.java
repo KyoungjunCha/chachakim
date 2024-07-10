@@ -3,6 +3,7 @@ package com.chachakim.chakimcha.user.mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import com.chachakim.chakimcha.user.vo.UserVO;
@@ -12,7 +13,7 @@ import com.chachakim.chakimcha.user.vo.UserVO;
 public interface UserMapper {
 
     //  로그인 시 입력 아이디로 정보 가져오기
-    public UserVO findUserById(String id);
+    public UserVO findUserById(@Param("id") String id);
 
     // 로그인 시 입력된 아이디로 권한등급 가져오기
     public String findRolesById(String id);

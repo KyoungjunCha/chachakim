@@ -3,6 +3,8 @@ package com.chachakim.chakimcha.user.service;
 import java.util.Collections;
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+import org.hibernate.annotations.Parameter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -32,17 +34,34 @@ public class UserServiceImpl implements UserService  {
     } // end of view
 
     @Override
-    public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException { // 메서드 이름 바꾸고 싶은데 오버라이딩이라 그냥 둠
-        UserVO userVO = mapper.findUserById(id);
+    public UserDetails loadUserByUsername(@Param("id") String id) throws UsernameNotFoundException { // 메서드 이름 바꾸고 싶은데 오버라이딩이라 그냥 둠
+        
+        System.out.println("UserServiceImpl.loadUserByUsername()");
 
+        System.out.println("UserServiceImpl.loadUserByUsername()의 id = " + id);
+        UserVO userVO = mapper.findUserById(id);
+        
         if (userVO == null) {
+            System.out.println("UserServiceImpl.loadUserByUsername()에서 userVO가 없대");
             throw new UsernameNotFoundException("User not found");
         }
 
+        System.out.println("UserServiceImpl.loadUserByUsername()의 userVO.id= " + userVO.getId());
         String role = mapper.findRolesById(userVO.getId());
-        List<GrantedAuthority> authorities = Collections.singletonList(new SimpleGrantedAuthority(role));
 
-        
+        if(role == null){
+            System.out.println("UserServiceImpl.loadUserByUsername()에서 role == null이면 얘가 나옴");
+        }else{
+            System.out.println("");
+        }
+
+        List<GrantedAuthority> authorities = Collections.singletonList(new SimpleGrantedAuthority(role)); // 해당 id 권한 가져오기
+
+        if(authorities == null){
+            System.out.println("UserServiceImpl.loadUserByUsername()에서 userVO가 없대");
+        }else System.out.println(authorities);
+
+        System.out.println("UserServiceImpl.loadUserByUsername()에서 마지막 return 전이야");
         return new User(userVO.getId(), userVO.getPassword(),true,
                 true, true,true, authorities);
 

@@ -3,6 +3,10 @@ package com.chachakim.chakimcha.user.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,9 +23,33 @@ import org.springframework.web.bind.annotation.RequestBody;
 @RequestMapping("/user")
 public class UserController {
 
+    @Autowired
+    private AuthenticationManager authenticationManager;
+
     @Autowired // 해당 타입의 빈(bean)을 자동으로 주입하라고 지시함
     @Qualifier("userServiceImpl") // UserService 중에서도 UserServiceImpl라는 이름을 가진 놈으로 주입하셈
     private UserService service;
+
+    @PostMapping("/login")
+    public String login(@RequestBody UserVO userVO) {
+        
+        System.out.println("UserController.login()");
+        System.out.println("UserController.login의 userVO = " + userVO);
+
+        try {
+            Authentication authentication = authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(userVO.getId(), userVO.getPassword())
+            );
+            if (authentication.isAuthenticated()) {
+                return "Login successful";
+            } else {
+                return "Login failed";
+            }
+        } catch (AuthenticationException e) {
+            return "Login failed: " + e.getMessage();
+        }
+    }
+
 
     @GetMapping("/list")
     public String list(){
@@ -40,6 +68,8 @@ public class UserController {
        }
         return vo;
     }
+
+    
 
     @PostMapping("/write")
     public String write(@RequestBody UserVO vo){
