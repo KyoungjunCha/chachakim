@@ -47,6 +47,7 @@ public class UserServiceImpl implements UserService  {
         }
 
         System.out.println("UserServiceImpl.loadUserByUsername()의 userVO.id= " + userVO.getId());
+        System.out.println("UserServiceImpl.loadUserByUsername()의 userVO.pw= " + userVO.getPassword());
         String role = mapper.findRolesById(userVO.getId());
 
         if(role == null){

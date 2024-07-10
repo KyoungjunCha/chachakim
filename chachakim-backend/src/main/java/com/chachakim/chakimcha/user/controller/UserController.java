@@ -37,15 +37,21 @@ public class UserController {
         System.out.println("UserController.login의 userVO = " + userVO);
 
         try {
+            System.out.println("UserController.login()의 try문 진입");
             Authentication authentication = authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(userVO.getId(), userVO.getPassword())
             );
+            System.out.println("UserController.login()의 new UsernamePasswordAuthenticationToken 끝");
+
             if (authentication.isAuthenticated()) {
+                System.out.println("UserController.login()의 authentication.isAuthenticated().true");
                 return "Login successful";
             } else {
+                System.out.println("UserController.login()의 authentication.isAuthenticated().false");
                 return "Login failed";
             }
         } catch (AuthenticationException e) {
+            System.out.println("UserController.login()의 authentication.isAuthenticated() 예외 : " + e);
             return "Login failed: " + e.getMessage();
         }
     }
