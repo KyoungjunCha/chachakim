@@ -12,13 +12,15 @@ import com.chachakim.chakimcha.user.vo.UserVO;
 @Mapper
 @Repository
 public interface UserMapper {
-     // 공지사항 리스트 보여주기
+    // 유저 리스트 보여주기
     public List<UserVO> list();
 
-    // 공지사항 클릭 시 각 항목별 상세 보기
-     public UserVO view(int user_Id);
+    // 유저 상세보기
+    public UserVO view(int user_Id);
 
-     public UserVO login(Map<String,String>params);
+    // 로그인
+    public UserVO login(Map<String, String> params);
 
-
+    // 유저 등록
+    public int write(UserVO vo);
 }

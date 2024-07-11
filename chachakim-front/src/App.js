@@ -38,7 +38,7 @@ const App = () => {
         <Route path="/surveyPage/:page_id" element={<SURVEY_PAGE_DETAIL />} />
         <Route path="/SignupPage" element={<SIGN_UP_PAGE />} />{" "}
         {/*회원가입 페이지 이동 관호 작성*/}
-        <Route path="/LoginPage" element={<LOGIN_PAGE />} />{" "}
+        <Route path="/login" element={<LOGIN_PAGE />} />{" "}
         {/* 로그인 페이지 이동 관호 작성*/}
         <Route path="/FindIdPage" element={<FIND_ID_PAGE />} />{" "}
         {/* 아이디 찾기 페이지 이동 관호 작성*/}
@@ -53,7 +53,7 @@ const App = () => {
         {/* 05.13 공지사항 세부 페이지 author:차경준 */}
         <Route path="/NoticeDetail/:id" element={<NOTICE_DETAIL />} />
         <Route path="/SignupPage" element={<SIGN_UP_PAGE/>} /> {/*회원가입 페이지 이동 관호 작성*/}
-        <Route path="/LoginPage" element={<LOGIN_PAGE/>} /> {/* 로그인 페이지 이동 관호 작성*/}
+        {/* <Route path="/LoginPage" element={<LOGIN_PAGE/>} /> 로그인 페이지 이동 관호 작성 */}
         <Route path="/FindIdPage" element={<FIND_ID_PAGE/>} /> {/* 아이디 찾기 페이지 이동 관호 작성*/}
         <Route path="/FindResultIdPage" element={<FIND_RESULT_ID_PAGE/>} /> {/* 아이디 찾기 결과 페이지 이동 관호 작성(05.12) */}
         <Route path="/FindPwPage" element={<FIND_PW_PAGE/>} /> {/* 비밀번호 찾기 페이지 이동 관호 작성*/}

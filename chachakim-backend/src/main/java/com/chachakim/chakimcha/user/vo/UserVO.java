@@ -15,5 +15,5 @@ public class UserVO {
     private String profile_image; // 유저 이미지
     private String gender; // 유저 성별
     private String birth; // 유저 생년월일
-    private int permission; // 유저 권한 레벨
+    private String permission; // 유저 권한 레벨
 }

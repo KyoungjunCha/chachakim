@@ -24,8 +24,7 @@ const LoginPage = () => {
 
     axios.post("http://localhost:4000/user/login", {
       id: formData.id,
-      password: formData.password,
-      // 필요한 다른 필드들을 추가하세요
+      password: formData.password
     })
     .then(response => {
       console.log("서버 응답:", response.data); // 서버 응답을 콘솔에 출력
