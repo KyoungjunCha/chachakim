@@ -1,12 +1,15 @@
 package com.chachakim.chakimcha.user.service;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.chachakim.chakimcha.user.mapper.UserMapper;
@@ -18,8 +21,8 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper mapper;
 
-    // @Autowired
-    // private PasswordEncoder passwordEncoder;
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
 
     @Override
     public List<UserVO> list(){
@@ -31,11 +34,31 @@ public class UserServiceImpl implements UserService {
         return mapper.view(user_Id);
     }
 
+
+    //0717
+    // 사용자 이름으로 사용자 정보를 로드하는 메서드
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        System.out.println("UserServiceImpl loadUserByUsername 호출 : " + username);
+        UserVO user = mapper.login(Collections.singletonMap("id", username));
+        if (user == null) {
+            System.out.println("UserServiceImpl 사용자를 못찾음" + username);
+            throw new UsernameNotFoundException("UserServiceImpl 유저 이름 찾을 수 없음: " + username);
+        }
+        System.out.println("UserServiceImpl 사용자 찾음 : " + user);
+        return org.springframework.security.core.userdetails.User.withUsername(user.getId())
+                .password(user.getPassword())
+                .authorities("USER").build();
+    }
+
+
+
+
     @Override
     public UserVO login(String id, String password){
         System.out.println("UserServiceImpl: 로그인 요청 데이터: " + id);
         UserVO user = mapper.login(Map.of("id", id, "password", password)); // 기존 login 메서드 사용
-        if (user != null && password.equals(user.getPassword())) { // 평문 비밀번호 비교
+        if (user != null && passwordEncoder.matches(password,user.getPassword())) { // 평문 비밀번호 비교
             System.out.println("UserServiceImpl: 로그인 성공: " + user.getId());
             return user;
         } else {

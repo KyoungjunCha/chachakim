@@ -16,7 +16,8 @@
 
   <!-- 로그인 -->
   <select id="login" parameterType="map" resultType="com.chachakim.chakimcha.user.vo.UserVO">
-    SELECT * FROM user WHERE id = #{id} AND password = #{password}
+    <!-- SELECT * FROM user WHERE id = #{id} AND password = #{password} -->
+    SELECT * FROM user WHERE id = #{id}
   </select>
 
   <!-- 유저 등록 -->

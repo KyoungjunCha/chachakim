@@ -24,7 +24,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 
 import com.chachakim.chakimcha.user.vo.UserVO;
 
-public interface UserService {
+public interface UserService extends UserDetailsService{
     public List<UserVO> list(); // 유저 리스트 조회
     public UserVO view(int user_Id); // 특정 유저 조회
     public UserVO login(String id, String password); // 로그인
