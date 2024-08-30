@@ -64,12 +64,19 @@ public class UserController {
         return null;
     }
 
-    @PostMapping("/register")
-    public String register(@RequestBody UserVO vo){
+    //회원가입 0813
+    @PostMapping("/join")
+    public String join(@RequestBody UserVO vo){
         System.out.println("UserController: 유저 등록하기 입니다.");
         System.out.println(vo);
-        service.write(vo);
-        return "등록 완료";
+    
+     UserVO registeredUser = service.join(vo);
+        
+        if (registeredUser != null) {
+          return "등록 완료";
+        } else {
+            return "등록 실패";
+        }   
     }
 
     // @PostMapping("/login")
@@ -97,30 +104,30 @@ public class UserController {
     //     return "Login successful";
     // }
 
-    //0717
+    //0717 0817 임시 주석처리함
     // 로그인 요청을 처리하는 엔드포인트
-    @PostMapping("/login")
-    public String createAuthenticationToken(@RequestBody UserVO userVO) throws Exception {
-        System.out.println("컨트롤러는 들어와 지냐?");
-        try {
-            System.out.println("로그인 요청 컨트롤러" + userVO);
-            Authentication authentication = authenticationManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(userVO.getId(), userVO.getPassword())
-            );
-            SecurityContextHolder.getContext().setAuthentication(authentication);
-            System.out.println("UserController - 유저 인증 성공 : " + userVO.getId());
-        } catch (Exception e) {
-            System.out.println("유저 인증 실패: " + e.getMessage());
-            throw new Exception("잘못된 아이디 혹은 비밀번호", e);
-        }
+    // @PostMapping("/login")
+    // public String createAuthenticationToken(@RequestBody UserVO userVO) throws Exception {
+    //     System.out.println("컨트롤러는 들어와 지냐?");
+    //     try {
+    //         System.out.println("로그인 요청 컨트롤러" + userVO);
+    //         Authentication authentication = authenticationManager.authenticate(
+    //                 new UsernamePasswordAuthenticationToken(userVO.getId(), userVO.getPassword())
+    //         );
+    //         SecurityContextHolder.getContext().setAuthentication(authentication);
+    //         System.out.println("UserController - 유저 인증 성공 : " + userVO.getId());
+    //     } catch (Exception e) {
+    //         System.out.println("유저 인증 실패: " + e.getMessage());
+    //         throw new Exception("잘못된 아이디 혹은 비밀번호", e);
+    //     }
 
-        final UserDetails userDetails = service.loadUserByUsername(userVO.getId());
-        System.out.println("로딩된 유저 디테일 : " + userDetails);
-        final String jwt = jwtUtil.generateToken(userDetails.getUsername());
-        System.out.println("UserController - 생성된 jwt : " + jwt);
+    //     final UserDetails userDetails = service.loadUserByUsername(userVO.getId());
+    //     System.out.println("로딩된 유저 디테일 : " + userDetails);
+    //     final String jwt = jwtUtil.generateToken(userDetails.getUsername());
+    //     System.out.println("UserController - 생성된 jwt : " + jwt);
 
-        return jwt; // JWT 토큰 반환
-    }
+    //     return jwt; // JWT 토큰 반환
+    // }
 
     @GetMapping("/update")
     public String update(){

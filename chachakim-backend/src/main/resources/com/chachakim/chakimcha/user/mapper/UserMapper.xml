@@ -21,8 +21,18 @@
   </select>
 
   <!-- 유저 등록 -->
-  <insert id="write" parameterType="com.chachakim.chakimcha.user.vo.UserVO">
-    INSERT INTO user (id, password, email, nickname, tel_number, address, address_detail, profile_image, gender, birth, permission)
-    VALUES (#{id}, #{password}, #{email}, #{nickname}, #{telNumber}, #{address}, #{addressDetail}, #{profileImage}, #{gender}, #{birth}, #{permission})
+  <insert id="join" parameterType="com.chachakim.chakimcha.user.vo.UserVO">
+    INSERT INTO user (id, password, email, nickname, telNumber, address, address_detail, profile_image, gender, birth, permission)
+    VALUES (#{id}, #{password}, #{email}, #{nickname}, #{telNumber}, #{address}, #{address_detail}, #{profile_image}, #{gender}, #{birth}, #{permission})
   </insert>
+
+  <!-- 이메일 존재 여부 확인 -->
+  <select id="findByUsername" resultType="com.chachakim.chakimcha.user.vo.UserVO" parameterType="String">
+    SELECT * FROM user WHERE id = #{id}
+  </select>
+
+  <select id="countByEmail" parameterType="String" resultType="int">
+    SELECT COUNT(*) FROM user WHERE email = #{email}
+  </select>
+
 </mapper>
