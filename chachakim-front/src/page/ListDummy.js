@@ -140,5 +140,19 @@ const VS_LIST = [
       views: 200
     }
   ];
+
+  //  관호 작성 (08.30)
+  const EVENT_LIST = [
+    {
+      title: "이벤트 1",
+      author: "관리자",
+      date: "2024.07.01"
+    },
+    {
+      title: "이벤트 2",
+      author: "관리자",
+      date: "2024.07.02"
+    }
+  ];
   
-  export { BOARD_NAME, VS_LIST, SURVEY_LIST, MY_TAKE_VS_LIST, MY_TAKE_SURVEY_LIST, COMMENT_LIST, NOTICE_LIST };
+  export { BOARD_NAME, VS_LIST, SURVEY_LIST, MY_TAKE_VS_LIST, MY_TAKE_SURVEY_LIST, COMMENT_LIST, NOTICE_LIST, EVENT_LIST };

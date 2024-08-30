@@ -12,6 +12,8 @@ const Menu = props => {
       navigate("/surveyPage");
     } else if (id === "공지사항"){
       navigate("/noticePage")
+    }else if (id === "Event"){
+      navigate("/eventPage")
     }
   };
 

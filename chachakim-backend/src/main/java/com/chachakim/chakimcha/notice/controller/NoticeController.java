@@ -46,21 +46,29 @@ public class NoticeController {
     @PostMapping // 공지사항 글 등록하기
     public void insertNotice(@RequestBody NoticeVO vo) { 
         System.out.println("NoticeController의 insertNotice 메서드 입니다.");
-        System.out.println("들어가는 값 : " + vo);
         System.out.println(vo);
-        service.insertNotice(vo);
+        int result = service.insertNotice(vo);
+        
+        if(result != 1) System.out.println("공지사항 글 등록 실패");
+        else System.out.println("공지사항 글 등록 성공");
     }
 
     @PutMapping("/{notice_Id}")  // 공지사항 글 수정하기
     public void updateNotice(@PathVariable int notice_Id, @RequestBody NoticeVO vo) {
         System.out.println("NoticeController의 updateNotice 메서드 입니다.");
         vo.setNotice_Id(notice_Id);
-        service.updateNotice(vo);
+        int result = service.updateNotice(vo);
+
+        if(result != 1) System.out.println("공지사항 글 수정 실패");
+        else System.out.println("공지사항 글 수정 성공");
     }
 
     @DeleteMapping("/{notice_Id}") // 공지사항 글 삭제하기
     public void deleteNotice(@PathVariable int notice_Id) {
         System.out.println("NoticeController의 deleteNotice 메서드 입니다.");
-        service.deleteNotice(notice_Id);
+        int result = service.deleteNotice(notice_Id);
+        
+        if(result != 1) System.out.println("공지사항 글 삭제 실패");
+        else System.out.println("공지사항 글 삭제 성공");
     }
-}
+} // End of Class NoticeController

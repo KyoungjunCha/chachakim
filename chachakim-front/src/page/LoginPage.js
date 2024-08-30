@@ -24,6 +24,7 @@ const LoginPage = () => {
     })
       .then(response => {
         console.log(response.data); // 서버 응답을 콘솔에 출력
+        localStorage.setItem('token', response.data.jwt); // JWT 토큰을 로컬 스토리지에 저장
         setMessage("환영합니다."); // 로그인 성공 시 메시지 설정
       })
       .catch(error => {

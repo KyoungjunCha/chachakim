@@ -20,6 +20,10 @@ import FIND_RESULT_ID_PAGE from "./page/FindResultIdPage"; // 관호 작성(05.1
 import MY_TAKE_VS_PAGE_TEST from "./page/MyTakeVSPageTest" // 관호 작성(06.14)
 import NOTICE_CREATE_PAGE from "./page/notice/js/NoticeCreatePage"; // 관호 작성(07.04)
 import NOTICE_UPDATE_PAGE from "./page/notice/js/NoticeUpdatePage"; // 관호 작성(07.04)
+import EVENT_PAGE from "./page/event/js/EventPage"; //차관호 이벤트 작성(08.30)
+import EVENT_DETAIL from "./page/event/js/eventDetail"; //차관호 이벤트 작성(08.30)
+import EVENT_UPDATE_PAGE from "./page/event/js/EventUpdatePage"; // 차관호 이벤트 작성(08.30)
+import EVENT_CREATE_PAGE from "./page/event/js/EventCreatePage"; //차관호 이벤트 작성(08.30)
 
 // import LoginPage from './pages/login/LoginPage_test';
 // import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
@@ -64,7 +68,11 @@ const App = () => {
         <Route path="/MyTakeVSPageTest" element={<MY_TAKE_VS_PAGE_TEST/>} /> {/* 내가 참여한 게시물 VS 페이지 테스트 작성 이동 관호 작성(05.24)*/}
         <Route path="/NoticeCreatePage" element={<NOTICE_CREATE_PAGE/>} /> {/* 공지사항 작성 페이지 관호 작성(07.04)*/}
         <Route path="/NoticeUpdatePage/:id" element={<NOTICE_UPDATE_PAGE/>} /> {/* 공지사항 수정 페이지 관호 작성(07.04)*/}
-        
+        <Route path="/EventPage" element={<EVENT_PAGE />} />{/*이벤트 리스트 페이지 관호 작성(08.30)*/}
+        <Route path="/EventDetail/:id" element={<EVENT_DETAIL />} /> {/*이벤트 상세 페이지 관호 작성(08.30)*/}
+        <Route path="/EventUpdatePage/:id" element={<EVENT_UPDATE_PAGE/>} /> {/* 이벤트 수정 페이지 관호 작성(08.30)*/}
+        <Route path="/EventCreatePage" element={<EVENT_CREATE_PAGE/>} /> {/* 이벤트 작성 페이지 관호 작성(08.30)*/}
+
         <Route path="*" element={<Navigate to="/main" replace />} />
         
       </Routes>
