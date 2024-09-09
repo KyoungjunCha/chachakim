@@ -1,8 +1,6 @@
 import "./App.css";
 import MAIN_PAGE from "./page/MainPage.js";
-import VS_PAGE from "./page/vsPage.js";
 import SURVEY_PAGE from "./page/SurveyPage.js";
-import VS_PAGE_DETAIL from "./page/vsDetailPage.js";
 import SURVEY_PAGE_DETAIL from "./page/SurveyDetailPage.js";
 import CREATE_LIST_PAGE from "./page/CreateListPage.js";
 import SEARCH_PAGE from "./page/SearchPage"; //정현 검색 버튼 클릭 시, 표시 되는 페이지
@@ -24,6 +22,9 @@ import EVENT_PAGE from "./page/event/js/EventPage"; //차관호 이벤트 작성
 import EVENT_DETAIL from "./page/event/js/eventDetail"; //차관호 이벤트 작성(08.30)
 import EVENT_UPDATE_PAGE from "./page/event/js/EventUpdatePage"; // 차관호 이벤트 작성(08.30)
 import EVENT_CREATE_PAGE from "./page/event/js/EventCreatePage"; //차관호 이벤트 작성(08.30)
+import VS_PAGE from "./page/vs/js/VsPage";  //차관호 vs 작성(09.02)
+import VS_DETAIL from "./page/vs/js/vsDetail"; //차관호 vs 작성(09.02)
+import VS_CREATE_PAGE from "./page/vs/js/VsCreatePage"; //차관호 vs 작성(09.09)
 
 // import LoginPage from './pages/login/LoginPage_test';
 // import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
@@ -35,10 +36,8 @@ const App = () => {
       <Routes>
         <Route path="/main" element={<MAIN_PAGE />} />
         <Route path="/search/:searchData" element={<SEARCH_PAGE />} />
-        <Route path="/vsPage" element={<VS_PAGE />} />
         <Route path="/surveyPage" element={<SURVEY_PAGE />} />
         <Route path="/:page_name/registration" element={<CREATE_LIST_PAGE />} />
-        <Route path="/vsPage/:page_id" element={<VS_PAGE_DETAIL />} />
         <Route path="/surveyPage/:page_id" element={<SURVEY_PAGE_DETAIL />} />
         <Route path="/SignupPage" element={<SIGN_UP_PAGE />} />{" "}
         {/*회원가입 페이지 이동 관호 작성*/}
@@ -72,6 +71,9 @@ const App = () => {
         <Route path="/EventDetail/:id" element={<EVENT_DETAIL />} /> {/*이벤트 상세 페이지 관호 작성(08.30)*/}
         <Route path="/EventUpdatePage/:id" element={<EVENT_UPDATE_PAGE/>} /> {/* 이벤트 수정 페이지 관호 작성(08.30)*/}
         <Route path="/EventCreatePage" element={<EVENT_CREATE_PAGE/>} /> {/* 이벤트 작성 페이지 관호 작성(08.30)*/}
+        <Route path="/VsPage" element={<VS_PAGE />} />  {/* VS 리스트 페이지 관호 작성(09.02)*/}
+        <Route path="/vsDetail/:id" element={<VS_DETAIL />} />  {/* VS 상세보기 페이지 관호 작성(09.02)*/}
+        <Route path="/VsCreatePage" element={<VS_CREATE_PAGE />} />  {/* VS 등록 페이지 관호 작성(09.09)*/}
 
         <Route path="*" element={<Navigate to="/main" replace />} />
         

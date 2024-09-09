@@ -3,11 +3,42 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.chachakim.chakimcha.vs.mapper.VsMapper">
-      
-  <select id = "view" resultType = "com.chachakim.chakimcha.vs.vo.VsVO">
-    select vs_id, title, write_datetime, content, view_count
+  
+  <!-- VS 전체 리스트 -->
+  <select id = "getVsList" resultType = "com.chachakim.chakimcha.vs.vo.VsVO">
+    select vs_id, title, take_count, write_datetime, endDate
     from vs
-    where vs_id in (#{vs_id})
   </select>
 
+<!-- VS 항목별 사진 리스트 -->
+  <select id = "getImageById" resultType = "java.lang.String">
+    SELECT image
+    FROM imagevs
+    WHERE vs_id = #{vs_id}
+  </select>
+
+<!-- VS 항목별 사진 제외 상세 정보 -->
+  <select id = "getVsById" resultType = "com.chachakim.chakimcha.vs.vo.VsVO">
+    SELECT vs_id, title, write_datetime, endDate, take_count
+    FROM vs
+    WHERE vs_id = #{vs_id}
+  </select>
+
+<!-- VS 등록 -->
+  <insert id="insertVs" useGeneratedKeys="true" keyProperty="vs_Id">
+    INSERT INTO vs (title, endDate)
+    VALUES (#{title}, #{endDate})
+  </insert>
+
+<!-- 이미지 등록 -->
+  <insert id="insertImageVs">
+    INSERT INTO imagevs (vs_id, image, option_number)
+    VALUES (#{vs_id}, #{image}, #{option_number})
+  </insert>
+
+   <!-- VS 삭제 -->
+  <delete id="deleteVs">
+      DELETE FROM vs WHERE vs_Id = #{vs_Id};
+  </delete>
+ 
 </mapper>

@@ -180,7 +180,7 @@ public class SecurityConfig {
 
         http
                 .authorizeHttpRequests((auth) -> auth
-                        .requestMatchers("/user/join","/login","/","/notices/**","/events/**").permitAll()
+                        .requestMatchers("/user/join","/login","/","/notices/**","/events/**","/vs/**","/uploads/**").permitAll()
                         .requestMatchers("/admin").hasRole("ADMIN")
                         .anyRequest().authenticated());
 
