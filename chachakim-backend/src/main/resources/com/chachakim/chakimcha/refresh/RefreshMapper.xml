@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chachakim.chakimcha.Refresh.RefreshMapper">
+    
+   <!-- 유저 리스트 조회 -->
+  <!-- <select id="list" resultType="com.chachakim.chakimcha.Refresh.RefreshVO">
+    SELECT * FROM user
+  </select> -->
+
+   <!-- refreshToken의 존재 여부를 확인하는 쿼리 -->
+    <select id="existsByRefresh" resultType="boolean">
+        SELECT COUNT(*) > 0
+        FROM refresh_table
+        WHERE refreshToken = #{refreshToken}
+    </select>
+
+    <!-- refreshToken을 삭제하는 쿼리 -->
+    <delete id="deleteByRefresh">
+        DELETE FROM refresh_table
+        WHERE refreshToken = #{refresh}
+    </delete>
+
+
+    <!-- Refresh 토큰 저장 반환이 1 혹은 0이 돌아옴 int 형으로 돌아온다..-->
+    <insert id="save">
+        INSERT INTO refresh_table (username, refreshToken, expiration)
+        VALUES (#{username}, #{refreshToken}, #{expiration})
+    </insert>
+
+</mapper>
