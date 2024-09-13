@@ -1,6 +1,7 @@
 package com.chachakim.chakimcha.config;
 
 import java.util.Iterator;
+import java.util.List;
 import java.io.BufferedReader;
 import java.util.Collection;
 
@@ -20,6 +21,7 @@ import com.chachakim.chakimcha.jwt.JwtUtil;
 import com.chachakim.chakimcha.user.vo.CustomUserDetails;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import io.jsonwebtoken.ExpiredJwtException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
@@ -130,6 +132,35 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
 
         // response.addHeader("Authorization", "Bearer " + accessToken);
         // response.addHeader("Refresh-Token", refreshToken);
+
+        //0911 기존에 저장된 리프레시 토큰 확인 및 만료된 경우 삭제
+        // String oldRefreshToken = refreshMapper.findByUsername(id);
+        // if(oldRefreshToken != null && jwtUtil.isExpired(oldRefreshToken)){
+        //   refreshMapper.deleteByRefresh(oldRefreshToken);
+        // }
+        // List<String> oldRefreshTokens = refreshMapper.findByUsername(id);  // 여러 개의 토큰 가져오기
+        // if (oldRefreshTokens != null && !oldRefreshTokens.isEmpty()) {
+        //     for (String oldRefreshToken : oldRefreshTokens) {
+        //         if (jwtUtil.isExpired(oldRefreshToken)) {
+        //             refreshMapper.deleteByRefresh(oldRefreshToken);  // 만료된 토큰 삭제
+        //         }
+        //     }
+        // }
+        List<String> oldRefreshTokens = refreshMapper.findByUsername(id);  // 여러 개의 토큰 가져오기
+            if (oldRefreshTokens != null && !oldRefreshTokens.isEmpty()) {
+            for (String oldRefreshToken : oldRefreshTokens) {
+                try {
+                    if (jwtUtil.isExpired(oldRefreshToken)) {
+                        refreshMapper.deleteByRefresh(oldRefreshToken);  // 만료된 토큰 삭제
+                    }//jwtUtil.isExpired 가 유통기한 지난거 에러 리턴해서 try catch 로 잡아서 직접 삭제 해야함..
+                } catch (ExpiredJwtException e) {
+                    // 만료된 토큰 예외를 처리하고 삭제
+                    refreshMapper.deleteByRefresh(oldRefreshToken);  // 만료된 토큰 삭제
+                }
+            }
+        }
+
+
 
         //0901 새로운 응답 방식
         response.setHeader("accessToken", accessToken);

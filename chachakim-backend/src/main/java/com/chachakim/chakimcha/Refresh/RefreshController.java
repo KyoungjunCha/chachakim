@@ -67,20 +67,26 @@ public class RefreshController {
         // 토큰이 refresh인지 확인 (발급시 페이로드에 명시)
         String category = jwtUtil.getCategory(refreshToken);
 
-        if (!category.equals("refresh")) {
+        if (!category.equals("refreshToken")) {
 
             //response status code
             return new ResponseEntity<>("invalid refresh token", HttpStatus.BAD_REQUEST);
         }
 
          //DB에 저장되어 있는지 확인
-		Boolean isExist = refreshMapper.existsByRefresh(refreshToken);
-		if (!isExist) {
+		// Boolean isExist = refreshMapper.existsByRefresh(refreshToken);
+		// if (!isExist) {
 		
-		    //response body
-		    return new ResponseEntity<>("invalid refresh token", HttpStatus.BAD_REQUEST);
-		}
+		//     //response body
+		//     return new ResponseEntity<>("invalid refresh token", HttpStatus.BAD_REQUEST);
+		// }
 
+        //0911
+        Boolean isExist = refreshMapper.existsByRefresh(refreshToken);
+        if (!isExist || jwtUtil.isExpired(refreshToken)) {
+            refreshMapper.deleteByRefresh(refreshToken);
+            return new ResponseEntity<>("invalid or expired refresh token", HttpStatus.BAD_REQUEST);
+        }
 
 
         String username = jwtUtil.getId(refreshToken);

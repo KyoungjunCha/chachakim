@@ -1,5 +1,7 @@
 package com.chachakim.chakimcha.Refresh;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
@@ -20,4 +22,6 @@ public interface RefreshMapper {
     @Transactional
     void deleteByRefresh(String refreshToken);
 
+
+    public List<String> findByUsername(String username);
 }

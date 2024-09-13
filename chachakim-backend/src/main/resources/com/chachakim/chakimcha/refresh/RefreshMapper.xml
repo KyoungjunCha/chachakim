@@ -19,7 +19,7 @@
     <!-- refreshToken을 삭제하는 쿼리 -->
     <delete id="deleteByRefresh">
         DELETE FROM refresh_table
-        WHERE refreshToken = #{refresh}
+        WHERE refreshToken = #{refreshToken}
     </delete>
 
 
@@ -28,5 +28,11 @@
         INSERT INTO refresh_table (username, refreshToken, expiration)
         VALUES (#{username}, #{refreshToken}, #{expiration})
     </insert>
+
+    <select id="findByUsername" resultType="string">
+        SELECT refreshToken 
+        FROM refresh_table 
+        WHERE username = #{username}
+    </select>
 
 </mapper>
