@@ -101,32 +101,38 @@ public class JwtUtil {
         return Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token).getBody().getExpiration().before(new Date());
     }
 
-    //생성
-    public String createJwt(String id, String role, Long expiredMs) {
+    public String getCategory(String token){
 
-		Claims claims = Jwts.claims();
-        claims.put("id", id);
-        claims.put("permisson", role);
+        return Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token).getBody().get("category",String.class);
+    }
+
+
+    //생성
+    public String createJwt(String category, String username, String role, Long expiredMs) {
 
         return Jwts.builder()
-                .setClaims(claims)
+                .claim("category", category)
+                .claim("username", username)
+                .claim("role", role)
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + expiredMs))
-                .signWith(key, SignatureAlgorithm.HS256)
+                .signWith(key)
                 .compact();
     }
+
+    
 
       // 리프레시 토큰 생성 메서드 추가
-      public String createRefreshToken(String id, Long expiredMs) {
-        Claims claims = Jwts.claims();
-        claims.put("id", id);
+    //   public String createRefreshToken(String id, Long expiredMs) {
+    //     Claims claims = Jwts.claims();
+    //     claims.put("id", id);
 
-        return Jwts.builder()
-                .setClaims(claims)
-                .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + expiredMs))
-                .signWith(key, SignatureAlgorithm.HS256)
-                .compact();
-    }
+    //     return Jwts.builder()
+    //             .setClaims(claims)
+    //             .setIssuedAt(new Date(System.currentTimeMillis()))
+    //             .setExpiration(new Date(System.currentTimeMillis() + expiredMs))
+    //             .signWith(key, SignatureAlgorithm.HS256)
+    //             .compact();
+    // }
 
 }

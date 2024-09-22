@@ -6,20 +6,18 @@ import com.chachakim.chakimcha.survey.vo.SurveyVO;
 
 public interface SurveyService {
 
-    // 공지사항 리스트 보여주기
-    public List<SurveyVO> list();
+    // 설문조사 리스트 보여주기
+    public List<SurveyVO> getSurveyList();
 
-    // 공지사항 클릭 시 각 항목별 상세 보기
-    public SurveyVO view(int survey_Id);
+    // 설문조사 클릭 시 각 항목별 상세 보기
+    public SurveyVO getSurveyById(int survey_Id);
 
-    /* 
-    // 공지사항 글 등록하기
-    public int write(SurveyVO vo);
+    // 설문조사 글 등록하기
+    public int insertSurvey(SurveyVO vo);
 
-    // 공지사항 글 수정하기
-    public int update(SurveyVO vo);
+    // 설문조사 글 수정하기
+    public int updateSurvey(SurveyVO vo);
 
-    // 공지사항 글 삭제하기
-    public int delete(int survey_Id);
-    */
+    // 설문조사 글 삭제하기
+    public int deleteSurvey(int survey_Id);
 } 

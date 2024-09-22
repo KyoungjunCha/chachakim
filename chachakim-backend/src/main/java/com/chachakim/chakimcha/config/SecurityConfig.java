@@ -62,6 +62,7 @@ package com.chachakim.chakimcha.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.chachakim.chakimcha.Refresh.RefreshMapper;
 import com.chachakim.chakimcha.jwt.JWTFilter;
 // import com.chachakim.chakimcha.jwt.JwtRequestFilter;
 import com.chachakim.chakimcha.jwt.JwtUtil;
@@ -76,6 +77,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.authentication.logout.LogoutFilter;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
 @Configuration
@@ -145,12 +147,15 @@ public class SecurityConfig {
 	//AuthenticationManager가 인자로 받을 AuthenticationConfiguraion 객체 생성자 주입
 	private final AuthenticationConfiguration authenticationConfiguration;
         private final JwtUtil jwtUtil;
+        
+        // 0906 refresh token add
+        private final RefreshMapper refreshMapper;
 
-
-    public SecurityConfig(AuthenticationConfiguration authenticationConfiguration, JwtUtil jwtUtil) {
+    public SecurityConfig(AuthenticationConfiguration authenticationConfiguration, JwtUtil jwtUtil, RefreshMapper refreshMapper) {
     
         this.authenticationConfiguration = authenticationConfiguration;
         this.jwtUtil = jwtUtil;
+        this.refreshMapper = refreshMapper;
         }
     
             //AuthenticationManager Bean 등록
@@ -180,8 +185,9 @@ public class SecurityConfig {
 
         http
                 .authorizeHttpRequests((auth) -> auth
-                        .requestMatchers("/user/join","/login","/","/notices/**","/events/**","/vs/**","/uploads/**").permitAll()
+                        .requestMatchers("/user/join","/login","/","/notices/**","/events/**","/uploads/**","/vs/**","/surveys/**","/main").permitAll()
                         .requestMatchers("/admin").hasRole("ADMIN")
+                        .requestMatchers("/reissue").permitAll()
                         .anyRequest().authenticated());
 
 			//JWTFilter 등록
@@ -191,8 +197,10 @@ public class SecurityConfig {
 
         	//필터 추가 LoginFilter()는 인자를 받음 (AuthenticationManager() 메소드에 authenticationConfiguration 객체를 넣어야 함) 따라서 등록 필요
         http    //대체를 위해서 At 필터 사용
-                .addFilterAt(new LoginFilter(authenticationManager(authenticationConfiguration),jwtUtil),UsernamePasswordAuthenticationFilter.class);
+                .addFilterAt(new LoginFilter(authenticationManager(authenticationConfiguration),jwtUtil, refreshMapper),UsernamePasswordAuthenticationFilter.class);
     
+        http
+                .addFilterBefore(new CustomLogoutFilter(jwtUtil, refreshMapper), LogoutFilter.class);
         http
                 .sessionManagement((session) -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS));

@@ -3,11 +3,59 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.chachakim.chakimcha.survey.mapper.SurveyMapper">
-      
-  <select id = "view" resultType = "com.chachakim.chakimcha.survey.vo.SurveyVO">
-    select survey_id, title, write_datetime, content, view_count
-    from survey
-    where survey_id in (#{survey_id})
+
+ <!-- Survey 리스트 가져오기 -->
+ <select id="getSurveyList" resultType="com.chachakim.chakimcha.survey.vo.SurveyVO">
+    SELECT survey_id, title, write_datetime, take_count, endDate, favorite_count
+    FROM survey
   </select>
+
+<!-- SurveyResultMap -->
+<resultMap id="SurveyResultMap" type="com.chachakim.chakimcha.survey.vo.SurveyVO">
+    <id property="survey_Id" column="survey_id"/>
+    <result property="title" column="title"/>
+    <result property="write_datetime" column="write_datetime"/>
+    <result property="take_count" column="take_count"/>
+    <result property="endDate" column="endDate"/>
+    <result property="favorite_count" column="favorite_count"/>
+    
+    <!-- Question List Mapping -->
+    <collection property="questions" ofType="com.chachakim.chakimcha.survey.vo.QuestionVO" resultMap="QuestionResultMap">
+        <id property="questionId" column="question_id"/>
+    </collection>
+</resultMap>
+
+<!-- QuestionResultMap -->
+<resultMap id="QuestionResultMap" type="com.chachakim.chakimcha.survey.vo.QuestionVO">
+    <id property="question_Id" column="question_id"/>
+    <result property="question_text" column="question_text"/>
+    
+    <!-- Choices List Mapping -->
+    <collection property="choices" ofType="com.chachakim.chakimcha.survey.vo.ChoiceVO" resultMap="ChoiceResultMap">
+        <id property="choice_Id" column="choice_id"/>
+    </collection>
+</resultMap>
+
+<!-- ChoiceResultMap -->
+<resultMap id="ChoiceResultMap" type="com.chachakim.chakimcha.survey.vo.ChoiceVO">
+    <id property="choice_Id" column="choice_id"/>
+    <result property="choice_text" column="choice_text"/>
+</resultMap>
+
+<!-- Survey 하나 가져오기 -->
+<select id="getSurveyById" resultMap="SurveyResultMap">
+    SELECT 
+        s.survey_id, s.title, s.write_datetime, s.content, s.endDate, s.take_count, s.favorite_count,
+        sq.question_id, sq.question_text,
+        sc.choice_id, sc.choice_text
+    FROM 
+        survey s
+    JOIN 
+        survey_question sq ON s.survey_id = sq.survey_id
+    JOIN 
+        survey_choice sc ON sq.question_id = sc.question_id
+    WHERE 
+        s.survey_id = #{survey_Id};
+</select>
 
 </mapper>

@@ -14,34 +14,33 @@ public class SurveyServiceImpl implements SurveyService  {
     @Autowired
     private SurveyMapper mapper;
 
-    @Override  // 공지사항 리스트 보여주기
-    public List<SurveyVO> list(){
-        return null;
+    @Override  // 설문조사 리스트 보여주기
+    public List<SurveyVO> getSurveyList(){
+        System.out.println("SurveyServiceImpl.getSurveyList() 실행중입니다.");
+        return mapper.getSurveyList();
     }
 
-    @Override // 공지사항 클릭 시 각 항목별 상세 보기
-    public SurveyVO view(int survey_Id){
-        System.out.println("SurveyServiceImpl.view() 실행중입니다. 즉 서비스까진 넘어온거임");
-        return mapper.view(survey_Id);
+    @Override // 설문조사 클릭 시 각 항목별 상세 보기
+    public SurveyVO getSurveyById(int survey_Id){
+        System.out.println("SurveyServiceImpl.getSurveyById() 실행중입니다.");
+        return mapper.getSurveyById(survey_Id);
     }
 
-/*
-
-
-    @Override // 공지사항 글 등록하기
-    public int write(SurveyVO vo){
-        return 0;
+    @Override // 설문조사 글 등록하기
+    public int insertSurvey(SurveyVO vo){
+        System.out.println("SurveyServiceImpl.insertSurvey() 실행중입니다.");
+        return mapper.insertSurvey(vo);
     }
 
-    @Override  // 공지사항 글 수정하기
-    public int update(SurveyVO vo){
-        return 0;
+    @Override  // 설문조사 글 수정하기
+    public int updateSurvey(SurveyVO vo){
+        System.out.println("SurveyServiceImpl.updateSurvey() 실행중입니다.");
+        return mapper.updateSurvey(vo);
     }
 
-    @Override // 공지사항 글 삭제하기
-    public int delete(int survey_Id){
-        return 0;
+    @Override // 설문조사 글 삭제하기
+    public int deleteSurvey(int survey_Id){
+        System.out.println("SurveyServiceImpl.delete() 실행중입니다.");
+        return mapper.deleteSurvey(survey_Id);
     }
-     */
-    
 } 

@@ -1,7 +1,5 @@
 import "./App.css";
 import MAIN_PAGE from "./page/MainPage.js";
-import SURVEY_PAGE from "./page/SurveyPage.js";
-import SURVEY_PAGE_DETAIL from "./page/SurveyDetailPage.js";
 import CREATE_LIST_PAGE from "./page/CreateListPage.js";
 import SEARCH_PAGE from "./page/SearchPage"; //정현 검색 버튼 클릭 시, 표시 되는 페이지
 import SIGN_UP_PAGE from "./page/SingUpPage"; // 관호 작성
@@ -25,20 +23,26 @@ import EVENT_CREATE_PAGE from "./page/event/js/EventCreatePage"; //차관호 이
 import VS_PAGE from "./page/vs/js/VsPage";  //차관호 vs 작성(09.02)
 import VS_DETAIL from "./page/vs/js/vsDetail"; //차관호 vs 작성(09.02)
 import VS_CREATE_PAGE from "./page/vs/js/VsCreatePage"; //차관호 vs 작성(09.09)
+import SURVEY_PAGE from "./page/survey/js/SurveyPage";  //차관호 vs 작성(09.19)
+import SURVEY_DETAIL from "./page/survey/js/surveyDetail"; //차관호 vs 작성(09.22)
 
 // import LoginPage from './pages/login/LoginPage_test';
 // import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
+import { CookiesProvider } from "react-cookie";  // 20240918 CookiesProvider 추가
+import axios from "axios"; // 20240917 경준이 브랜치에서 긁어옴
+import { useEffect } from "react";  // 20240917 경준이 브랜치에서 긁어옴
+
 const App = () => {
+
   return (
+    <CookiesProvider>
     <BrowserRouter>
       <Routes>
         <Route path="/main" element={<MAIN_PAGE />} />
         <Route path="/search/:searchData" element={<SEARCH_PAGE />} />
-        <Route path="/surveyPage" element={<SURVEY_PAGE />} />
         <Route path="/:page_name/registration" element={<CREATE_LIST_PAGE />} />
-        <Route path="/surveyPage/:page_id" element={<SURVEY_PAGE_DETAIL />} />
         <Route path="/SignupPage" element={<SIGN_UP_PAGE />} />{" "}
         {/*회원가입 페이지 이동 관호 작성*/}
         <Route path="/LoginPage" element={<LOGIN_PAGE />} />{" "}
@@ -74,11 +78,14 @@ const App = () => {
         <Route path="/VsPage" element={<VS_PAGE />} />  {/* VS 리스트 페이지 관호 작성(09.02)*/}
         <Route path="/vsDetail/:id" element={<VS_DETAIL />} />  {/* VS 상세보기 페이지 관호 작성(09.02)*/}
         <Route path="/VsCreatePage" element={<VS_CREATE_PAGE />} />  {/* VS 등록 페이지 관호 작성(09.09)*/}
+        <Route path="/SurveyPage" element={<SURVEY_PAGE />} />  {/* 설문조사 리스트 페이지 관호 작성(09.19)*/}
+        <Route path="/surveyDetail/:id" element={<SURVEY_DETAIL />} />  {/* 설문조사 상세보기 페이지 관호 작성(09.22)*/}
 
         <Route path="*" element={<Navigate to="/main" replace />} />
         
       </Routes>
     </BrowserRouter>
+    </CookiesProvider>
   );
 };
 
