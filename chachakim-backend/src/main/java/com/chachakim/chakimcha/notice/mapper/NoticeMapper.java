@@ -3,6 +3,7 @@ package com.chachakim.chakimcha.notice.mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import com.chachakim.chakimcha.notice.vo.NoticeVO;
@@ -11,7 +12,10 @@ import com.chachakim.chakimcha.notice.vo.NoticeVO;
 @Repository
 public interface NoticeMapper {
     // 공지사항 리스트 보여주기
-     public List<NoticeVO> getNoticeList();
+     public List<NoticeVO> getNoticeList(@Param("pageSize") int pageSize, @Param("offset") int offset);
+
+    // 공지사항 총 개수를 가져오기
+    public int  getTotalNoticeCount();
 
     // 공지사항 클릭 시 각 항목별 상세 보기
      public NoticeVO getNoticeById(int notice_Id);

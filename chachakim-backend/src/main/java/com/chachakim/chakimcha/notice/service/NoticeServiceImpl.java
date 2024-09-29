@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.chachakim.chakimcha.notice.mapper.NoticeMapper;
 import com.chachakim.chakimcha.notice.vo.NoticeVO;
+import com.oracle.wls.shaded.org.apache.regexp.recompile;
 
 @Service
 public class NoticeServiceImpl implements NoticeService  {
@@ -15,10 +16,16 @@ public class NoticeServiceImpl implements NoticeService  {
     private NoticeMapper mapper;
 
     @Override  // 공지사항 리스트 보여주기
-    public List<NoticeVO> getNoticeList(){
+    public List<NoticeVO> getNoticeList(int pageSize, int pageNumber){
         System.out.println("NoticeServiceImpl.getNoticeList() 실행중입니다.");
-        return mapper.getNoticeList();
+        int offset = (pageNumber - 1) * pageSize;
+        return mapper.getNoticeList(pageSize, offset);
     }
+
+    @Override
+    public int getTotalNoticeCount() {
+        return mapper.getTotalNoticeCount();
+    }   
 
     @Override // 공지사항 클릭 시 각 항목별 상세 보기
     public NoticeVO getNoticeById(int notice_Id){
@@ -49,5 +56,7 @@ public class NoticeServiceImpl implements NoticeService  {
         System.out.println("NoticeServiceImpl.increaseview() 실행중입니다.");
         return mapper.increaseview(notice_Id);
     }
+
+ 
     
 } 

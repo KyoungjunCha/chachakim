@@ -4,8 +4,10 @@ package com.chachakim.chakimcha.notice.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import java.util.List;
+
+import java.util.*;
 
 import com.chachakim.chakimcha.notice.service.NoticeService;
 import com.chachakim.chakimcha.notice.vo.NoticeVO;
@@ -29,10 +31,19 @@ public class NoticeController {
     private NoticeService service;
 
     @GetMapping // 공지사항 리스트 보여주기
-    public List<NoticeVO> getNoticeList() {
+    public Map<String, Object> getNoticeList(@RequestParam(value = "pageNumber", defaultValue = "1") int pageNumber,
+        @RequestParam(value = "pageSize", defaultValue = "10") int pageSize) {
+
         System.out.println("NoticeController의 getNoticeList 메서드 입니다.");
-        System.out.println(service.getNoticeList());
-        return service.getNoticeList();
+        List<NoticeVO> notices = service.getNoticeList(pageSize, pageNumber);
+        int totalNotices = service.getTotalNoticeCount();
+        int totalPages = (int) Math.ceil((double) totalNotices / pageSize);
+
+        Map<String, Object> response = new HashMap<>();
+        response.put("notices", notices);
+        response.put("totalPages", totalPages);
+
+        return response;
     }
 
     @GetMapping("/{notice_Id}") // 공지사항 클릭 시 각 항목별 상세 보기

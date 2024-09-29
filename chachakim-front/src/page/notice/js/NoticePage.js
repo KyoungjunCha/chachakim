@@ -7,23 +7,37 @@ import { useNavigate } from "react-router-dom";
 
 const NoticePage = () => {
     const [list, setList] = useState([]);
-    const [page, setPage] = useState(BOARD_NAME["NOTICE"]);
+    const [pageSize] = useState(10); // 한 페이지에 표시할 데이터 수
+    const [pageNumber, setPageNumber] = useState(1); // 현재 페이지 번호
+    const [totalPages, setTotalPages] = useState(1); // 전체 페이지 수
     const navigate = useNavigate();
 
-    useEffect(() => {
-        axios.get("http://localhost:4000/notices")
+    // 데이터 가져오기
+    const fetchNotices = (pageNum) => {
+        axios.get(`http://localhost:4000/notices?pageNumber=${pageNum}&pageSize=${pageSize}`)
             .then(response => {
-                if (Array.isArray(response.data)) {
-                    setList(response.data);
+                if (response.data.notices && Array.isArray(response.data.notices)) {
+                    setList(response.data.notices);
+                    setTotalPages(response.data.totalPages); // 전체 페이지 수 업데이트
                 } else {
-                    console.error("Expected an array but got:", response.data);
+                    console.error("Unexpected response format:", response.data);
                 }
             })
             .catch(error => {
                 console.error("Error fetching the notices:", error);
             });
-    }, []);
+    };
 
+    useEffect(() => {
+        fetchNotices(pageNumber);
+    }, [pageNumber]);
+
+    // 페이지 변경 핸들러
+    const handlePageChange = (newPageNumber) => {
+        setPageNumber(newPageNumber);
+    };
+
+    // 리스트 생성 함수
     const createList = (item) => {
         return item.map((listItem, index) => (
             <div
@@ -43,7 +57,7 @@ const NoticePage = () => {
                     borderBottom: "1px solid",
                     margin: "0 2px",
                 }}>
-                    <label>{index}</label>
+                    <label>{index + 1 + (pageNumber - 1) * pageSize}</label>
                 </div>
                 <div style={{
                     width: "25vw",
@@ -71,6 +85,28 @@ const NoticePage = () => {
                 </div>
             </div>
         ));
+    };
+
+    // 페이지네이션 버튼 생성 함수
+    const renderPagination = () => {
+        const buttons = [];
+        for (let i = 1; i <= totalPages; i++) {
+            buttons.push(
+                <button
+                    key={i}
+                    onClick={() => handlePageChange(i)}
+                    style={{
+                        margin: "0 5px",
+                        padding: "5px",
+                        backgroundColor: pageNumber === i ? "gray" : "white",
+                        cursor: "pointer"
+                    }}
+                >
+                    {i}
+                </button>
+            );
+        }
+        return buttons;
     };
 
     const renderBody = () => {
@@ -137,6 +173,9 @@ const NoticePage = () => {
                         </div>
                     </div>
                     {createList(list)}
+                    <div style={{ marginTop: "20px", textAlign: "center" }}>
+                        {renderPagination()}
+                    </div>
                 </div>
             </div>
         );

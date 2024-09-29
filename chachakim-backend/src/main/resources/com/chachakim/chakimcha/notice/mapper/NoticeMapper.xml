@@ -7,6 +7,13 @@
  <select id = "getNoticeList" resultType = "com.chachakim.chakimcha.notice.vo.NoticeVO">
     SELECT notice_id, title, write_datetime, content, view_count
     FROM notice
+    ORDER BY  notice_id DESC
+    LIMIT #{pageSize} OFFSET #{offset}
+  </select>
+
+  <select id = "getTotalNoticeCount" resultType="int">
+    SELECT count(*)
+    FROM notice
   </select>
 
   <select id = "getNoticeById" resultType = "com.chachakim.chakimcha.notice.vo.NoticeVO">
