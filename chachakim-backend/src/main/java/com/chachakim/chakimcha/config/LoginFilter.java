@@ -55,29 +55,6 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
 
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
-
-		// 		//클라이언트 요청에서 username, password 추출
-    //     // String id = obtainUsername(request);
-    //     // String password = obtainPassword(request);
-    //     // obtainUsername 으로 하면 무조건 username 으로 해야함 .. field 값이
-    //     // 잘하면 json 형식 즉 raw 데이터 형으로도 보낼 수 있도록 수정해야 할 듯
-    //     String id = request.getParameter("id");
-    //     String password = request.getParameter("password");
-
-    //     System.out.println("유저 id 확보 되었는지 확인 " + id);
-    //     System.out.println("유저 password 확보 되었는지 확인 " + password);
-
-
-    //     if (id == null || password == null) {
-    //     // 로그를 추가하고 null 체크 후 예외를 던질 수 있습니다.
-    //     throw new AuthenticationServiceException("ID 또는 비밀번호가 null입니다.");
-    // }
-
-		// 		//스프링 시큐리티에서 username과 password를 검증하기 위해서는 token에 담아야 함
-    //     UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(id, password, null);
-
-		// 		//token에 담은 검증을 위한 AuthenticationManager로 전달
-    //     return authenticationManager.authenticate(authToken);
     
   //0831 json 형태로 파싱
   try {
@@ -127,25 +104,11 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
         String accessToken = jwtUtil.createJwt("accessToken", id, role, 600000L);
         String refreshToken = jwtUtil.createJwt("refreshToken", id, role, 86400000L);
 
+        response.setHeader("Authorization", "Bearer " + accessToken);
+
         //0905
         addRefreshVO(id, refreshToken, 86400000L);
 
-        // response.addHeader("Authorization", "Bearer " + accessToken);
-        // response.addHeader("Refresh-Token", refreshToken);
-
-        //0911 기존에 저장된 리프레시 토큰 확인 및 만료된 경우 삭제
-        // String oldRefreshToken = refreshMapper.findByUsername(id);
-        // if(oldRefreshToken != null && jwtUtil.isExpired(oldRefreshToken)){
-        //   refreshMapper.deleteByRefresh(oldRefreshToken);
-        // }
-        // List<String> oldRefreshTokens = refreshMapper.findByUsername(id);  // 여러 개의 토큰 가져오기
-        // if (oldRefreshTokens != null && !oldRefreshTokens.isEmpty()) {
-        //     for (String oldRefreshToken : oldRefreshTokens) {
-        //         if (jwtUtil.isExpired(oldRefreshToken)) {
-        //             refreshMapper.deleteByRefresh(oldRefreshToken);  // 만료된 토큰 삭제
-        //         }
-        //     }
-        // }
         List<String> oldRefreshTokens = refreshMapper.findByUsername(id);  // 여러 개의 토큰 가져오기
             if (oldRefreshTokens != null && !oldRefreshTokens.isEmpty()) {
             for (String oldRefreshToken : oldRefreshTokens) {
@@ -168,15 +131,6 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
         //응답 상태 코드 보내기
         response.setStatus(HttpStatus.OK.value());
 
-
-        // CORS 설정을 위한 헤더 추가 (클라이언트가 헤더를 읽을 수 있도록 설정)
-        // response.addHeader("Access-Control-Expose-Headers", "Authorization, Refresh-Token");
-
-
-
-        // String token = jwtUtil.createJwt(id, role, 60*60*10L);
-        // 해당 인증방식에 Bearer 를 붙이는 이유는 RFC 7235 인증 방식의 룰이다.
-        // response.addHeader("Authorization", "Bearer " + token);
     }
 
 		//로그인 실패시 실행하는 메소드

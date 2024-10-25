@@ -21,6 +21,7 @@ import MY_TAKE_VS_PAGE_TEST from "./page/MyTakeVSPageTest" // 관호 작성(06.1
 import NOTICE_CREATE_PAGE from "./page/notice/js/NoticeCreatePage"; // 관호 작성(07.04)
 import NOTICE_UPDATE_PAGE from "./page/notice/js/NoticeUpdatePage"; // 관호 작성(07.04)
 import axios from "axios";
+import { CookiesProvider } from "react-cookie";
 // import LoginPage from './pages/login/LoginPage_test';
 // import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
@@ -40,6 +41,7 @@ const App = () => {
 
 
   return (
+    // <CookiesProvider>
     <BrowserRouter>
       <Routes>
         <Route path="/main" element={<MAIN_PAGE />} />
@@ -82,6 +84,7 @@ const App = () => {
         
       </Routes>
     </BrowserRouter>
+    // </CookiesProvider>
   );
 };
 
