@@ -80,6 +80,64 @@
 
 
 // src/api/axiosInstance.js
+// import axios from 'axios';
+
+// // Axios 인스턴스 생성
+// const api = axios.create({
+//   baseURL: 'http://localhost:4000', // 서버의 기본 URL
+//   withCredentials: true, // 쿠키 포함 설정
+// });
+
+// // 요청 인터셉터 설정 - accessToken 추가
+// api.interceptors.request.use(
+//   config => {
+//     const accessToken = localStorage.getItem("accessToken");
+//     if (accessToken) {
+//       config.headers['Authorization'] = `Bearer ${accessToken}`; // accessToken 추가
+//     }
+//     return config;
+//   },
+//   error => Promise.reject(error)
+// );
+
+// // 응답 인터셉터 설정 - 401 에러 시 쿠키에 저장된 refreshToken으로 토큰 갱신
+// api.interceptors.response.use(
+//   response => response, // 성공적인 응답은 그대로 반환
+//   async error => {
+//     const originalRequest = error.config;
+
+//     // 401 Unauthorized 에러 처리
+//     if (error.response && error.response.status === 401 && !originalRequest._retry) {
+//       originalRequest._retry = true;
+
+//       try {
+//         // refreshToken을 사용하여 새로운 accessToken 발급
+//         const reissueResponse = await api.post('/reissue');  // withCredentials 설정으로 쿠키에 자동 포함됨
+
+//         const newAccessToken = reissueResponse.headers['accessToken'];
+//         if (newAccessToken) {
+//           localStorage.setItem("accessToken", newAccessToken); // 새로운 accessToken 저장
+//           originalRequest.headers['Authorization'] = `Bearer ${newAccessToken}`;
+//           return api(originalRequest); // 재시도 요청
+//         } else {
+//           throw new Error("New access token not found");
+//         }
+//       } catch (reissueError) {
+//         console.error('토큰 갱신 실패', reissueError);
+//         localStorage.removeItem("accessToken");
+//         window.location.href = "/login"; // 갱신 실패 시 로그인 페이지로 이동
+//       }
+//     }
+
+//     return Promise.reject(error); // 기타 에러는 그대로 반환
+//   }
+// );
+
+// export default api;
+
+
+//1028
+// src/api/axiosInstance.js
 import axios from 'axios';
 
 // Axios 인스턴스 생성
@@ -115,6 +173,7 @@ api.interceptors.response.use(
         const reissueResponse = await api.post('/reissue');  // withCredentials 설정으로 쿠키에 자동 포함됨
 
         const newAccessToken = reissueResponse.headers['accessToken'];
+        console.log("새로 발급된 Access Token:", newAccessToken); // 콘솔에 새로운 accessToken 출력
         if (newAccessToken) {
           localStorage.setItem("accessToken", newAccessToken); // 새로운 accessToken 저장
           originalRequest.headers['Authorization'] = `Bearer ${newAccessToken}`;
