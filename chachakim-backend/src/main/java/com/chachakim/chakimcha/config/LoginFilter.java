@@ -47,15 +47,16 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
     private RefreshMapper refreshMapper;
 
     public LoginFilter(AuthenticationManager authenticationManager, JwtUtil jwtUtil, RefreshMapper refreshMapper) {
-
+      System.out.println("LoginFilter 생성자"); // 관호
         this.authenticationManager = authenticationManager;
         this.jwtUtil = jwtUtil;
         this.refreshMapper = refreshMapper;
+        System.out.println("LoginFilter 생성자 끝"); // 관호
     }
 
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
-    
+      System.out.println("LoginFilter.attemptAuthentication() 시작"); // 관호
   //0831 json 형태로 파싱
   try {
         BufferedReader reader = request.getReader();
@@ -88,7 +89,7 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
     @Override
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authentication) {
       CustomUserDetails customUserDetails = (CustomUserDetails) authentication.getPrincipal();
-
+      System.out.println("LoginFilter.successfulAuthentication() 시작");// 관호
         String id = customUserDetails.getUsername();
 
         Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
@@ -124,7 +125,7 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
         }
 
 
-
+        System.out.println("LoginFilter.successfulAuthentication() 끝나기 직전");// 관호
         //0901 새로운 응답 방식
         response.setHeader("accessToken", accessToken);
         response.addCookie(createCookie("refreshToken",refreshToken));
@@ -136,12 +137,13 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
 		//로그인 실패시 실행하는 메소드
     @Override
     protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, AuthenticationException failed) {
+      System.out.println("LoginFilter.unsuccessfulAuthentication() 시작"); // 관호
       response.setStatus(401);
       System.out.println("여기가 문제라는 건가");
     }
 
     private Cookie createCookie(String key, String value) {
-
+      System.out.println("LoginFilter.createCookie() 시작"); // 관호
       Cookie cookie = new Cookie(key, value);
       //쿠키 생존시간
       cookie.setMaxAge(24*60*60);
@@ -151,11 +153,12 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
       //cookie.setPath("/");
       //클라이언트 단에서 js 로 쿠키에 접근하지 못하게 제한하기 위함
       cookie.setHttpOnly(true);
-  
+      System.out.println("LoginFilter.createCookie() 끝"); // 관호
       return cookie;
   }
 
   private void addRefreshVO(String username, String refreshToken, Long expiredMs) {
+    System.out.println("LoginFilter.addRefreshVO() 시작"); // 관호
 
     Date date = new Date(System.currentTimeMillis() + expiredMs);
 
@@ -167,5 +170,6 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
     refreshMapper.save(refreshVO);
     // reissueMapper.save(reissueVO);
     // refreshRepository.save(refreshEntity);
+    System.out.println("LoginFilter.addRefreshVO() 끝"); // 관호
   }
 }
