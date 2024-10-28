@@ -26,18 +26,19 @@ import VS_CREATE_PAGE from "./page/vs/js/VsCreatePage"; //차관호 vs 작성(09
 import SURVEY_PAGE from "./page/survey/js/SurveyPage";  //차관호 vs 작성(09.19)
 import SURVEY_DETAIL from "./page/survey/js/surveyDetail"; //차관호 vs 작성(09.22)
 
+// 경준이 브랜치에서 긁어옴 시작(20241028)
+import axios from "axios";
+import { CookiesProvider } from "react-cookie";
 // import LoginPage from './pages/login/LoginPage_test';
 // import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-
-import { CookiesProvider } from "react-cookie";  // 20240918 CookiesProvider 추가
-import axios from "axios"; // 20240917 경준이 브랜치에서 긁어옴
-import { useEffect } from "react";  // 20240917 경준이 브랜치에서 긁어옴
+import { useEffect } from "react";
+// 경준이 브랜치에서 긁어옴 끝(20241028)
 
 const App = () => {
 
   return (
-    <CookiesProvider>
+    //<CookiesProvider>
     <BrowserRouter>
       <Routes>
         <Route path="/main" element={<MAIN_PAGE />} />
@@ -85,7 +86,7 @@ const App = () => {
         
       </Routes>
     </BrowserRouter>
-    </CookiesProvider>
+    //</CookiesProvider>
   );
 };
 
