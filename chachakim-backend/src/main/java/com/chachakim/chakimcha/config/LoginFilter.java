@@ -70,9 +70,12 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
         Map<String, String> jsonRequest = objectMapper.readValue(sb.toString(), Map.class);
         
         String id = jsonRequest.get("id");
+        System.out.println(id);
         String password = jsonRequest.get("password");
+        System.out.println(password);
 
         if (id == null || password == null) {
+            System.err.println("ID 또는 Password null");
             throw new AuthenticationServiceException("ID 또는 비밀번호가 null입니다.");
         }
 
@@ -80,58 +83,107 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
         return authenticationManager.authenticate(authToken);
 
     } catch (IOException e) {
+        System.err.println("Error in attemptAuthentication: " + e.getMessage());
         throw new AuthenticationServiceException("Request InputStream 오류", e);
     }
   }
 
 		//로그인 성공시 실행하는 메소드 (여기서 JWT를 발급하면 됨)
+    // @Override
+    // protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authentication) {
+    //   CustomUserDetails customUserDetails = (CustomUserDetails) authentication.getPrincipal();
+
+    //     String id = customUserDetails.getUsername();
+
+    //     Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
+    //     Iterator<? extends GrantedAuthority> iterator = authorities.iterator();
+    //     GrantedAuthority auth = authorities.isEmpty() ? null : iterator.next();
+    //     if (auth == null) {
+    //         throw new AuthenticationServiceException("No authorities found for user.");
+    //     }
+        
+    //     String role = auth.getAuthority();
+
+    //     //토큰 생성
+    //     String accessToken = jwtUtil.createJwt("accessToken", id, role, 600000L);
+    //     String refreshToken = jwtUtil.createJwt("refreshToken", id, role, 86400000L);
+
+    //     response.setHeader("Authorization", "Bearer " + accessToken);
+
+    //     //0905
+    //     addRefreshVO(id, refreshToken, 86400000L);
+
+    //     List<String> oldRefreshTokens = refreshMapper.findByUsername(id);  // 여러 개의 토큰 가져오기
+    //         if (oldRefreshTokens != null && !oldRefreshTokens.isEmpty()) {
+    //         for (String oldRefreshToken : oldRefreshTokens) {
+    //             try {
+    //                 if (jwtUtil.isExpired(oldRefreshToken)) {
+    //                     refreshMapper.deleteByRefresh(oldRefreshToken);  // 만료된 토큰 삭제
+    //                 }//jwtUtil.isExpired 가 유통기한 지난거 에러 리턴해서 try catch 로 잡아서 직접 삭제 해야함..
+    //             } catch (ExpiredJwtException e) {
+    //                 // 만료된 토큰 예외를 처리하고 삭제
+    //                 refreshMapper.deleteByRefresh(oldRefreshToken);  // 만료된 토큰 삭제
+    //             }
+    //         }
+    //     }
+
+    //     System.out.println("일단은 로그인 성공?");
+
+    //     //0901 새로운 응답 방식
+    //     response.setHeader("accessToken", accessToken);
+    //     response.addCookie(createCookie("refreshToken",refreshToken));
+    //     //응답 상태 코드 보내기
+    //     response.setStatus(HttpStatus.OK.value());
+
+    // }
+
     @Override
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authentication) {
-      CustomUserDetails customUserDetails = (CustomUserDetails) authentication.getPrincipal();
+        try {
+            CustomUserDetails customUserDetails = (CustomUserDetails) authentication.getPrincipal();
+            String id = customUserDetails.getUsername();
+            System.out.println("Authentication successful for user: " + id);  // 사용자 ID 로그 출력
 
-        String id = customUserDetails.getUsername();
+            Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
+            Iterator<? extends GrantedAuthority> iterator = authorities.iterator();
+            GrantedAuthority auth = authorities.isEmpty() ? null : iterator.next();
+            if (auth == null) {
+                System.err.println("No authorities found for user.");  // 권한 없음 로그 추가
+                throw new AuthenticationServiceException("No authorities found for user.");
+            }
 
-        Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
-        Iterator<? extends GrantedAuthority> iterator = authorities.iterator();
-        GrantedAuthority auth = authorities.isEmpty() ? null : iterator.next();
-        if (auth == null) {
-            throw new AuthenticationServiceException("No authorities found for user.");
-        }
-        
-        String role = auth.getAuthority();
+            String role = auth.getAuthority();
+            System.out.println("User role: " + role);  // 사용자 역할 로그 출력
 
-        //토큰 생성
-        String accessToken = jwtUtil.createJwt("accessToken", id, role, 600000L);
-        String refreshToken = jwtUtil.createJwt("refreshToken", id, role, 86400000L);
+            String accessToken = jwtUtil.createJwt("accessToken", id, role, 600000L);
+            String refreshToken = jwtUtil.createJwt("refreshToken", id, role, 86400000L);
+            response.setHeader("Authorization", "Bearer " + accessToken);
 
-        response.setHeader("Authorization", "Bearer " + accessToken);
+            addRefreshVO(id, refreshToken, 86400000L);
 
-        //0905
-        addRefreshVO(id, refreshToken, 86400000L);
-
-        List<String> oldRefreshTokens = refreshMapper.findByUsername(id);  // 여러 개의 토큰 가져오기
+            List<String> oldRefreshTokens = refreshMapper.findByUsername(id);
             if (oldRefreshTokens != null && !oldRefreshTokens.isEmpty()) {
-            for (String oldRefreshToken : oldRefreshTokens) {
-                try {
-                    if (jwtUtil.isExpired(oldRefreshToken)) {
-                        refreshMapper.deleteByRefresh(oldRefreshToken);  // 만료된 토큰 삭제
-                    }//jwtUtil.isExpired 가 유통기한 지난거 에러 리턴해서 try catch 로 잡아서 직접 삭제 해야함..
-                } catch (ExpiredJwtException e) {
-                    // 만료된 토큰 예외를 처리하고 삭제
-                    refreshMapper.deleteByRefresh(oldRefreshToken);  // 만료된 토큰 삭제
+                for (String oldRefreshToken : oldRefreshTokens) {
+                    try {
+                        if (jwtUtil.isExpired(oldRefreshToken)) {
+                            refreshMapper.deleteByRefresh(oldRefreshToken);
+                            System.out.println("Deleted expired token for user: " + id);  // 토큰 만료 삭제 로그
+                        }
+                    } catch (ExpiredJwtException e) {
+                        refreshMapper.deleteByRefresh(oldRefreshToken);
+                    }
                 }
             }
+
+            response.setHeader("accessToken", accessToken);
+            response.addCookie(createCookie("refreshToken", refreshToken));
+            response.setStatus(HttpStatus.OK.value());
+        } catch (Exception e) {
+            System.err.println("Error in successfulAuthentication: " + e.getMessage());  // 예외 로그 추가
+            response.setStatus(HttpStatus.FORBIDDEN.value());
         }
-
-
-
-        //0901 새로운 응답 방식
-        response.setHeader("accessToken", accessToken);
-        response.addCookie(createCookie("refreshToken",refreshToken));
-        //응답 상태 코드 보내기
-        response.setStatus(HttpStatus.OK.value());
-
     }
+
 
 		//로그인 실패시 실행하는 메소드
     @Override
