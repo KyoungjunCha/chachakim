@@ -51,10 +51,10 @@
 
 
 //1030
-
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./BaseHeader.css";
+import axios from "axios";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -65,7 +65,7 @@ const Header = () => {
   useEffect(() => {
     const checkLoginStatus = () => {
       const accessToken = localStorage.getItem("accessToken");
-      setIsLoggedIn(Boolean(accessToken));  // accessToken 존재 여부로 로그인 상태 결정
+      setIsLoggedIn(Boolean(accessToken));  // accessToken이 존재하면 로그인 상태로 설정
 
       const storedUsername = localStorage.getItem("username");
       if (storedUsername) {
@@ -83,16 +83,20 @@ const Header = () => {
     };
   }, []);
 
-  const handleLogin = () => {
-    localStorage.setItem("accessToken", "exampleAccessToken");
-    setIsLoggedIn(true);
-    setUsername("User123");
-  };
-
-  const handleLogout = () => {
-    localStorage.removeItem("accessToken");
-    setIsLoggedIn(false);
-    setUsername("");
+  const handleLogout = async () => {
+    try {
+      // 로그아웃 요청
+      await axios.post("http://localhost:4000/logout", {}, { withCredentials: true });
+  
+      // 성공 시 로컬 스토리지에서 토큰 삭제 및 상태 업데이트
+      localStorage.removeItem("accessToken");
+      localStorage.removeItem("username"); // 필요 시 추가
+      setIsLoggedIn(false);
+      setUsername("");
+      navigate("/login");  // 로그아웃 후 로그인 페이지로 이동
+    } catch (error) {
+      console.error("로그아웃 중 오류가 발생했습니다!", error);
+    }
   };
 
   return (
@@ -146,7 +150,6 @@ const Header = () => {
             className="BaseHeader-signup"
             onClick={() => {
               navigate("/login");
-              handleLogin();
             }}
           >
             Login
@@ -166,4 +169,3 @@ const Header = () => {
 };
 
 export default Header;
-

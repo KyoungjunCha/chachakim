@@ -205,19 +205,24 @@
 
 // LoginPage.js
 
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import api from "../axios/axiosInstance"; // 인터셉터가 설정된 Axios 인스턴스 가져오기
 import Header from "../base/BaseHeader";
 import Menu from "../base/BaseMenu";
 import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
-  const [formData, setFormData] = useState({
-    id: '',
-    password: ''
-  });
-
+  const [formData, setFormData] = useState({ id: '', password: '' });
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // 로그인 상태를 확인하고 로그인된 상태라면 메인 페이지로 이동
+    const accessToken = localStorage.getItem("accessToken");
+    if (accessToken) {
+      navigate("/main");
+    }
+  }, [navigate]);
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
